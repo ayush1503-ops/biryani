@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DUM — Biryani &amp; Bar, Nizamuddin, Delhi</title>
+<meta name="description" content="Slow-cooked dum pukht biryani, sealed with dough and opened at your table. Gali Qasim Jaan, Nizamuddin Basti, Delhi.">
+<meta name="theme-color" content="#1F4A38">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23143325'/%3E%3Cpath d='M20 40c0-8 5-14 12-14s12 6 12 14' fill='none' stroke='%23E8A013' stroke-width='5' stroke-linecap='round'/%3E%3Cellipse cx='32' cy='41' rx='14' ry='3' fill='%23F6EDD8'/%3E%3C/svg%3E">
+<style>/*FONTS*/</style>
+<style>/*CSS*/</style>
+</head>
+<body>
+<a class="skip" href="#contenu">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ======================= INTRO ======================= -->
+<div class="intro" id="intro" aria-hidden="true">
+	<div class="intro__panels"><span></span><span></span><span></span><span></span><span></span></div>
+	<div class="intro__logo">
+		<p class="intro__word" aria-hidden="true"><span>D</span><span>U</span><span>M</span></p>
+		<p class="intro__sub">Biryani &amp; Bar · Nizamuddin</p>
+	</div>
+	<div class="intro__wait">
+		<span class="intro__handi">
+			<svg viewBox="0 0 64 48" aria-hidden="true">
+				<path d="M8 18c0 14 6 22 24 22s24-8 24-22" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+				<path d="M4 18h56" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+				<path d="M16 18c0-8 6-13 16-13s16 5 16 13" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+				<circle cx="32" cy="5" r="2.6" fill="currentColor"/>
+			</svg>
+		</span>
+		<ul class="intro__msgs">
+			<li>Bhuna masala, dheere dheere…</li>
+			<li>Chawal bhig rahe hain. Bheegne do.</li>
+			<li>Sealing the deg with atta. Tight.</li>
+			<li>Saffron is soaking. Don't rush it.</li>
+			<li>Somebody pinched a kebab. We restart.</li>
+			<li>Onions have been browning for 3 hours.</li>
+			<li>Dum pe hai. Bilkul chup.</li>
+			<li>Chai is on. Casi listo…</li>
+			<li>Thoda sa sab kuch, bohot sa loading…</li>
+			<li>Beeper is buzzing. Aaram se.</li>
+		</ul>
+		<span class="intro__bar"><i id="introBar"></i></span>
+	</div>
+	<p class="intro__done">Aa gayi. Aa jao.</p>
+</div>
+
+<!-- ======================= CURSOR ======================= -->
+<div class="cursor" aria-hidden="true">
+	<span class="cursor__dot"></span>
+	<span class="cursor__label">Dekho</span>
+</div>
+
+<!-- ======================= TOPBAR ======================= -->
+<header class="topbar">
+	<a class="topbar__logo" href="#contenu" aria-label="DUM — Biryani &amp; Bar, back to top">
+		<svg viewBox="0 0 120 48" aria-hidden="true">
+			<path d="M4 38c0-10 4-16 12-16s12 6 12 16" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" transform="translate(4,-6) scale(.85)"/>
+			<text x="2" y="34" font-family="Archivo, Arial Black, sans-serif" font-weight="800" font-size="26" letter-spacing="-1" fill="currentColor">DUM</text>
+			<circle cx="92" cy="16" r="3" fill="#E8A013"/>
+		</svg>
+		<span class="topbar__deva" aria-hidden="true">दम</span>
+	</a>
+	<p class="topbar__status" id="status" aria-live="polite">
+		<span class="topbar__dot" aria-hidden="true"></span>
+		<span data-status-text>Khula hai · till 23:00</span>
+	</p>
+	<a class="topbar__link" href="#visit" data-cursor="Rasta">
+		Directions
+		<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13 13 3M13 3H6M13 3v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+	</a>
+</header>
+
+<main id="contenu">
+
+<!-- ======================= HERO ======================= -->
+<section class="s-hero" aria-labelledby="hero-title">
+	<div class="s-hero__bg" aria-hidden="true">
+		<svg>
+			<defs>
+				<pattern id="motif" width="440" height="200" patternUnits="userSpaceOnUse" patternTransform="rotate(-6)">
+					<text x="0" y="52" font-family="Archivo, Arial Black, sans-serif" font-weight="800" font-size="46" letter-spacing="2" fill="currentColor">DUM PUKHT ·</text>
+					<text x="0" y="126" font-family="Archivo, Arial Black, sans-serif" font-weight="800" font-size="46" letter-spacing="2" fill="none" stroke="currentColor" stroke-width="1.4">SLOW COOKED ·</text>
+					<text x="140" y="196" font-family="Archivo, Arial Black, sans-serif" font-weight="800" font-size="46" letter-spacing="2" fill="currentColor">SEALED ·</text>
+				</pattern>
+			</defs>
+			<rect width="100%" height="100%" fill="url(#motif)"/>
+		</svg>
+	</div>
+	<div class="s-hero__glow" aria-hidden="true"></div>
+
+	<p class="s-hero__kicker">
+		<span>Biryani &amp; Bar</span>
+		<span class="sep" aria-hidden="true">✳</span>
+		<span class="s-hero__by">by DUM</span>
+		<span class="sep" aria-hidden="true">✳</span>
+		<span>Nizamuddin · Dilli</span>
+	</p>
+
+	<div class="s-hero__stage">
+		<div class="s-hero__title">
+			<h1 class="s-hero__word" id="hero-title">D<em>U</em>M</h1>
+			<span class="sr-only">DUM — Biryani &amp; Bar, Nizamuddin, Delhi</span>
+		</div>
+
+		<div class="deg-scene" id="degScene" aria-hidden="true">
+			<div class="deg-scene__inner" id="degInner">
+				<div class="deg-scene__shadow"></div>
+				<canvas class="steam" id="steam" aria-hidden="true"></canvas>
+				<span class="orbit orbit--a" data-depth="130" aria-hidden="true"><i>elaichi · laung · tez patta</i></span>
+				<span class="orbit orbit--b" data-depth="70" aria-hidden="true"><i>deg no. 4 — dum pe hai</i></span>
+				<span class="burst" data-depth="170" aria-hidden="true"><b>deg for two</b><strong>₹640</strong><i>raita free. obviously.</i></span>
+				<figure class="hshot hshot--back" aria-hidden="true"><img src="assets/img/b-dum.jpg" alt="" loading="lazy" decoding="async"></figure>
+				<figure class="hshot hshot--main"><img src="assets/img/hero.jpg" alt="An open brass handi of mutton dum biryani on the table" fetchpriority="high" decoding="async"><figcaption>mutton dum · deg 4 · 9:42 pm</figcaption></figure>
+			</div>
+		</div>
+
+		<p class="s-hero__scrawl">
+			sealed at 8.<br>opened at your table.
+			<svg viewBox="0 0 80 40" aria-hidden="true"><path d="M4 6c14 22 34 30 66 26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M60 26l12 6-10 9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+		</p>
+
+		<div class="stamp s-hero__stamp">
+			<svg viewBox="0 0 200 200" aria-hidden="true">
+				<defs><path id="stampPath" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+				<text><textPath href="#stampPath" startOffset="0">DUM PUKHT · SLOW COOKED · SEALED &amp; OPENED ·</textPath></text>
+			</svg>
+			<svg class="stamp__ico" viewBox="0 0 64 48" aria-hidden="true">
+				<path d="M8 18c0 14 6 22 24 22s24-8 24-22" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+				<path d="M4 18h56" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+				<path d="M16 18c0-8 6-13 16-13s16 5 16 13" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+				<circle cx="32" cy="5" r="2.6" fill="currentColor"/>
+			</svg>
+		</div>
+	</div>
+
+	<div class="s-hero__foot">
+		<p class="s-hero__tagline">
+			Basmati, saffron, mutton, and four hours of <b>doing nothing</b> — the good kind of nothing.
+			<span class="hand">asli dum, asli baat.</span>
+		</p>
+		<div class="countdown countdown--hero" id="countdownHero">
+			<p class="countdown__label">Dum is on · <time data-open-at>opens 12:30</time></p>
+			<p class="countdown__clock" data-clock>
+				<span><b data-d>00</b><i>din</i></span>
+				<span><b data-h>00</b><i>ghante</i></span>
+				<span><b data-m>00</b><i>min</i></span>
+				<span><b data-s>00</b><i>sec</i></span>
+			</p>
+			<p class="countdown__open"><span data-open-k>Khula hai</span><span data-open-v>till 23:00</span></p>
+		</div>
+	</div>
+
+	<a class="s-hero__scroll" href="#def" data-cursor="Neeche">
+		<span>Scroll · neeche</span>
+		<i aria-hidden="true"></i>
+	</a>
+</section>
+
+<!-- ======================= MARQUEE ======================= -->
+<section class="s-marquee" aria-label="What we cook">
+	<div class="marquee marquee--a">
+		<div class="marquee__track" data-marquee="-1">
+			<div class="marquee__group">
+				<span class="marquee__word">Biryani</span>
+				<svg class="marquee__ico" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 6c3 6 2 10-1 13 5-2 8-6 9-11 5 6 5 11 1 15 5 0 9-2 12-6 1 8-3 13-9 15 5 2 10 2 15-1-3 7-9 10-15 9 3 5 7 8 13 9-7 4-13 3-17-2-1 6 1 11 5 15-8 0-12-5-12-11-4 5-5 10-3 16-6-3-8-9-6-15-5 3-9 7-10 13-3-7-1-13 4-17-6 1-11-1-14-5 6-2 11-1 15 2-4-5-5-10-3-15 4 4 7 7 8 11-2-6 0-11 4-14 2 4 3 8 2 11 2-5 6-9 11-10Z" fill="currentColor"/></svg>
+				<span class="marquee__word marquee__word--alt">Kebab</span>
+				<svg class="marquee__ico" viewBox="0 0 60 60" aria-hidden="true"><path d="M8 30c8-14 24-20 40-16 6 12-4 26-18 30-10 3-19 0-22-14Z" fill="currentColor"/></svg>
+				<span class="marquee__word">Chaas</span>
+				<svg class="marquee__ico" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 4c8 0 14 6 14 14 0 12-6 22-14 38-8-16-14-26-14-38 0-8 6-14 14-14Z" fill="currentColor"/></svg>
+				<span class="marquee__word">Dum</span>
+				<svg class="marquee__ico" viewBox="0 0 60 60" aria-hidden="true"><path d="M18 46c-6-10-6-24 4-31 8-6 18-4 22 4 4 8 0 18-8 24-6 4-13 6-18 3Z" fill="currentColor"/></svg>
+			</div>
+			<div class="marquee__group" aria-hidden="true">
+				<span class="marquee__word">Biryani</span>
+				<svg class="marquee__ico" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 6c3 6 2 10-1 13 5-2 8-6 9-11 5 6 5 11 1 15 5 0 9-2 12-6 1 8-3 13-9 15 5 2 10 2 15-1-3 7-9 10-15 9 3 5 7 8 13 9-7 4-13 3-17-2-1 6 1 11 5 15-8 0-12-5-12-11-4 5-5 10-3 16-6-3-8-9-6-15-5 3-9 7-10 13-3-7-1-13 4-17-6 1-11-1-14-5 6-2 11-1 15 2-4-5-5-10-3-15 4 4 7 7 8 11-2-6 0-11 4-14 2 4 3 8 2 11 2-5 6-9 11-10Z" fill="currentColor"/></svg>
+				<span class="marquee__word marquee__word--alt">Kebab</span>
+				<svg class="marquee__ico" viewBox="0 0 60 60" aria-hidden="true"><path d="M8 30c8-14 24-20 40-16 6 12-4 26-18 30-10 3-19 0-22-14Z" fill="currentColor"/></svg>
+				<span class="marquee__word">Chaas</span>
+				<svg class="marquee__ico" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 4c8 0 14 6 14 14 0 12-6 22-14 38-8-16-14-26-14-38 0-8 6-14 14-14Z" fill="currentColor"/></svg>
+				<span class="marquee__word">Dum</span>
+				<svg class="marquee__ico" viewBox="0 0 60 60" aria-hidden="true"><path d="M18 46c-6-10-6-24 4-31 8-6 18-4 22 4 4 8 0 18-8 24-6 4-13 6-18 3Z" fill="currentColor"/></svg>
+			</div>
+		</div>
+	</div>
+	<div class="marquee marquee--b">
+		<div class="marquee__track" data-marquee="1">
+			<div class="marquee__group">
+				<span class="marquee__word">Thoda thoda sab kuch</span><span class="marquee__star" aria-hidden="true">✱</span>
+				<span class="marquee__word">Bahut zyada accha</span><span class="marquee__star" aria-hidden="true">✱</span>
+				<span class="marquee__word">Ek aur plate, phir chalte hain</span><span class="marquee__star" aria-hidden="true">✱</span>
+			</div>
+			<div class="marquee__group" aria-hidden="true">
+				<span class="marquee__word">Thoda thoda sab kuch</span><span class="marquee__star">✱</span>
+				<span class="marquee__word">Bahut zyada accha</span><span class="marquee__star">✱</span>
+				<span class="marquee__word">Ek aur plate, phir chalte hain</span><span class="marquee__star">✱</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ======================= DEFINITION ======================= -->
+<section class="s-def" id="def" aria-labelledby="def-title">
+	<div class="s-def__glow" aria-hidden="true"></div>
+	<div class="s-def__ills" aria-hidden="true">
+	</div>
+
+	<article class="stamp-card" data-reveal>
+		<header class="s-def__head">
+			<h2 data-split class="s-def__word" id="def-title">bir·ya·ni</h2>
+			<p class="s-def__phon">/bɪrˈjɑː.ni/ <em>noun, Urdu</em></p>
+		</header>
+		<p class="s-def__text">
+			A pot of rice that has been lied to about how long it takes. Layered with marinated meat,
+			saffron milk and onions fried until they stopped arguing, sealed with dough, then
+			<mark>left completely alone over a low flame</mark> until the whole gali can smell it.
+			Eaten with the hands, argued over, followed by a nap.
+		</p>
+		<p class="s-def__syn">
+			<strong>Synonyms</strong>
+			<mark>dawat</mark><mark>khushiyan</mark><mark>bohot zyada</mark>
+		</p>
+		<svg class="s-def__sketch" viewBox="0 0 200 170" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M32 78C32 40 62 26 100 26s68 14 68 52"/>
+			<ellipse cx="100" cy="80" rx="70" ry="11"/>
+			<path d="M38 86c0 38 24 60 62 60s62-22 62-60"/>
+			<path d="M58 106c12 12 28 18 42 18s30-6 42-18" opacity=".5"/>
+			<circle cx="100" cy="20" r="6"/>
+			<path d="M84 8c-5-7 5-11 0-18M116 8c-5-7 5-11 0-18" opacity=".45"/>
+		</svg>
+		<div class="s-def__sign">
+			<svg viewBox="0 0 200 60" aria-hidden="true">
+				<path d="M6 14c34 30 74 40 120 26 20-6 34-16 44-28" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+				<path d="M158 30l16-16-4 22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+			</svg>
+			<p>Not a pulao. Don't do that. We will know.</p>
+		</div>
+		<p class="s-def__foot">def. 01 · opposite of: biryani in 20 minutes</p>
+	</article>
+</section>
+
+<!-- ======================= BUILD (pinned) ======================= -->
+<section class="s-build edge-wave" aria-labelledby="build-title">
+	<div class="s-build__pin" id="buildPin">
+		<div class="s-build__intro">
+			<span class="s-build__kick"><span class="sec-tag">02</span>Dum pukht · the method</span>
+			<h2 data-split class="s-build__title" id="build-title">Ek deg,<br><span class="serif-i">itna simple.</span></h2>
+			<p class="s-build__lede">Five things happen. None of them fast. <span class="hand">Scroll karo, dikhata hoon.</span></p>
+			<p class="s-build__count" aria-hidden="true"><b id="buildCount">01</b><span>/ 05</span></p>
+		</div>
+
+		<ol class="s-build__steps" id="buildSteps">
+			<li class="s-build__step is-active">
+				<span class="s-build__num">01</span>
+				<span class="s-build__name">Chawal</span>
+				<span class="s-build__desc">Basmati, soaked 40 minutes. Not 20. Layered half-cooked, never fully.</span>
+			</li>
+			<li class="s-build__step">
+				<span class="s-build__num">02</span>
+				<span class="s-build__name">Marinade</span>
+				<span class="s-build__desc">Dahi, raw papaya, Kashmiri mirch, a spoon of mustard oil. Overnight.</span>
+			</li>
+			<li class="s-build__step">
+				<span class="s-build__num">03</span>
+				<span class="s-build__name">Birista</span>
+				<span class="s-build__desc">Onions, three hours, low flame, no shortcuts, no crying in the deg.</span>
+			</li>
+			<li class="s-build__step">
+				<span class="s-build__num">04</span>
+				<span class="s-build__name">Tarkib</span>
+				<span class="s-build__desc">Rice over meat. Saffron milk, mint, kewra, ghee. Then the same again.</span>
+			</li>
+			<li class="s-build__step">
+				<span class="s-build__num">05</span>
+				<span class="s-build__name">Dum</span>
+				<span class="s-build__desc">Atta seal. 25 minutes on low, no peeking. Then opened in front of you.</span>
+			</li>
+		</ol>
+
+<!-- ROUND6 -->
+		<figure class="print s-build__plate" data-tilt="1">
+			<img src="assets/img/k-seal.jpg" alt="Hands pressing a rope of dough onto the rim of a deg to seal it" loading="lazy" decoding="async">
+			<figcaption>11:40 · the seal goes on</figcaption>
+		</figure>
+
+			<figure class="print s-build__plate s-build__plate--b" data-tilt="1">
+				<img src="assets/img/k-lid.jpg" alt="A cook lifting the brass lid off a steaming deg" loading="lazy" decoding="async">
+				<figcaption>12:24 · lid off, first look</figcaption>
+			</figure>
+		<div class="s-build__progress" aria-hidden="true"><span id="buildProgress"></span></div>
+
+		<div class="build-scene">
+			<div class="deck" id="buildDeck">
+				<figure class="deck__card deck__card--paper" data-shot="0">
+					<div class="paper">
+						<span class="paper__no">Page 01</span>
+						<h3 class="paper__name">Chawal</h3>
+						<p class="paper__line">Basmati, soaked 40 minutes.<br>Not 20. Salted water, boiled to 70% —<br>the grain must still have a bite<br>before it goes anywhere near the meat.</p>
+						<ul class="paper__list"><li>soaked · 40 min</li><li>salted · yes</li><li>drained · colander</li></ul>
+						<span class="paper__stamp">Checked · 11:20</span>
+					</div>
+					<figcaption>01 · Chawal — the rice note</figcaption>
+				</figure>
+				<figure class="deck__card deck__card--paper" data-shot="1">
+					<div class="paper">
+						<span class="paper__no">Page 02</span>
+					<h3 class="paper__name">Marinade</h3>
+					<p class="paper__line">Mutton, dahi, raw papaya, Kashmiri mirch,<br>a spoon of mustard oil. Six hours minimum.<br><br><span class="paper__hand">Bhaiya, chill the deg overnight — last Friday we were up at 5.</span></p>
+						<ul class="paper__list"><li>mutton · 1 kg</li><li>dahi · 500 g</li><li>rested · overnight</li></ul>
+						<span class="paper__stamp">6 hrs · fridge</span>
+					</div>
+					<figcaption>02 · Marinade — the overnight note</figcaption>
+				</figure>
+				<figure class="deck__card deck__card--paper" data-shot="2">
+					<div class="paper">
+						<span class="paper__no">Page 03</span>
+					<h3 class="paper__name">Birista</h3>
+					<p class="paper__line">400 g onions, sliced thin, low flame,<br>40 minutes, one shade of brown.<br><br><span class="paper__hand">If it is dark, it is bitter. Throw it out and start again.</span></p>
+						<ul class="paper__list"><li>onions · 400 g</li><li>flame · low</li><li>shade · amber</li></ul>
+						<span class="paper__stamp">One shade only</span>
+					</div>
+					<figcaption>03 · Birista — the onion note</figcaption>
+				</figure>
+				<figure class="deck__card" data-shot="3"><img src="assets/img/b-tarkib.jpg" alt="Basmati rice being layered over marinated mutton in a brass deg" loading="lazy" decoding="async"><figcaption>04 · Tarkib — rice over meat, twice</figcaption></figure>
+				<figure class="deck__card" data-shot="4"><img src="assets/img/b-dum.jpg" alt="A deg sealed with a ring of dough on a low flame" loading="lazy" decoding="async"><figcaption>05 · Dum — atta seal, 25 minutes</figcaption></figure>
+			</div>
+		</div>
+	</section>
+
+<!-- ======================= GALLERY ======================= -->
+<section class="s-gallery edge-wave" aria-labelledby="gallery-title">
+	<div class="s-gallery__pin" id="galleryPin">
+		<p class="s-gallery__giant" aria-hidden="true">EIGHT PLATES</p>
+		<header class="s-gallery__head">
+			<span class="s-gallery__k"><span class="sec-tag">03</span>No menu on the wall. Just these.</span>
+			<h2 data-split class="s-gallery__title" id="gallery-title">Eight plates,<br><span class="serif-i">one rule.</span></h2>
+		</header>
+		<span class="s-gallery__hint" aria-hidden="true">Scroll →</span>
+		<p class="s-gallery__count" aria-hidden="true"><b id="galCount">01</b> / 08</p>
+
+		<div class="s-gallery__track" id="galleryTrack">
+			<figure class="card">
+				<div class="card__media" style="background:#1F4A38">
+					<span class="card__tag">house</span>
+					<img class="card__img" src="assets/img/g-kacchi.jpg" alt="Mutton dum biryani in an open brass handi, lid set aside" loading="lazy" decoding="async">
+					<span class="card__price">₹360</span><span class="card__film">TABLE 6 · 9:42 PM</span><figcaption class="card__title"><strong>Hyderabadi Kacchi</strong><span>mutton · kachchi · saffron</span></figcaption>
+				</div>
+				<span class="card__num">01</span>
+			</figure>
+			<figure class="card card--low">
+				<div class="card__media" style="background:#5C2A15">
+					<img class="card__img" src="assets/img/g-awadhi.jpg" alt="Awadhi biryani in a copper handi with the brass lid set aside" loading="lazy" decoding="async">
+					<span class="card__price">₹380</span><span class="card__film">HANDI No.2 · DUM 25 MIN</span><figcaption class="card__title"><strong>Lucknowi Awadhi</strong><span>mutton · kewra · ittar</span></figcaption>
+				</div>
+				<span class="card__num">02</span>
+			</figure>
+			<figure class="card">
+				<div class="card__media" style="background:#17806F">
+					<span class="card__tag">aloo + dim</span>
+					<img class="card__img" src="assets/img/g-kolkata.jpg" alt="Kolkata mutton biryani on a steel plate with potato and egg" loading="lazy" decoding="async">
+					<span class="card__price">₹340</span><span class="card__film">ALOO FIRST · FIGHT LATER</span><figcaption class="card__title"><strong>Kolkata</strong><span>mutton · aloo · dim</span></figcaption>
+				</div>
+				<span class="card__num">03</span>
+			</figure>
+			<figure class="card card--low">
+				<div class="card__media" style="background:#C03A17">
+					<img class="card__img" src="assets/img/g-ambur.jpg" alt="Ambur-style biryani served on a fresh banana leaf" loading="lazy" decoding="async">
+					<span class="card__price">₹320</span><span class="card__film">LEAF · EAT WITH HANDS</span><figcaption class="card__title"><strong>Ambur</strong><span>short grain · red chilli</span></figcaption>
+				</div>
+				<span class="card__num">04</span>
+			</figure>
+			<figure class="card card--low card--sold">
+				<div class="card__paper">
+					<span class="card__paper-k">Bhatkali · coastal</span>
+					<p class="card__paper-n">84</p>
+					<p class="card__paper-d">plates on today's deg.<br>Gone by 3:10 pm.</p>
+					<span class="card__paper-s">Sold out</span>
+					<span class="card__paper-f">new deg tomorrow · 12:30</span>
+				</div>
+				<span class="card__num">05</span>
+			</figure>
+			<figure class="card card--low">
+				<div class="card__media" style="background:#DE6A1F">
+					<img class="card__img" src="assets/img/g-malabar.jpg" alt="Biryani on a steel platter, raita bowls on the cloth beside" loading="lazy" decoding="async">
+					<span class="card__price">₹330</span><span class="card__film">STEEL PLATE · FULL MEALS</span><figcaption class="card__title"><strong>Malabar</strong><span>chicken · cashew · raisin</span></figcaption>
+				</div>
+				<span class="card__num">06</span>
+			</figure>
+			<figure class="card card--veg">
+				<div class="card__media" style="background:#14655A">
+					<span class="card__tag">veg · no meat</span>
+					<img class="card__img" src="assets/img/g-kathal.jpg" alt="Vegetable biryani with jackfruit and cashews in a copper bowl" loading="lazy" decoding="async">
+					<span class="card__price">₹280</span><span class="card__film">VEG · STILL DUM</span><figcaption class="card__title"><strong>Kathal</strong><span>jackfruit · ghee · sabar</span></figcaption>
+				</div>
+				<span class="card__num">07</span>
+			</figure>
+			<figure class="card card--low">
+				<div class="card__media" style="background:#143325">
+					<img class="card__img" src="assets/img/g-murgh.jpg" alt="Chicken biryani with a leg piece on a steel plate" loading="lazy" decoding="async">
+					<span class="card__price">₹310</span><span class="card__film">LEG PIECE · CALL DIBS</span><figcaption class="card__title"><strong>Murgh</strong><span>chicken · three hours on dum</span></figcaption>
+				</div>
+				<span class="card__num">08</span>
+			</figure>
+		</div>
+	</div>
+</section>
+
+
+<!-- ======================= THE CARD (price list) ======================= -->
+<section class="s-card" aria-labelledby="card-title">
+		<div class="s-card__wrap">
+		<div class="strip" aria-label="The day, on the pass">
+			<p class="strip__k"><span>On the pass</span> <span class="strip__rule" aria-hidden="true"></span> <span>Tuesday, before service</span></p>
+			<div class="strip__row">
+				<figure class="strip__shot" data-reveal>
+					<img src="assets/img/k-lid.jpg" alt="A cook lifting the brass lid off a steaming deg on a low flame" loading="lazy" decoding="async">
+					<figcaption>12:24 · lid off, first look</figcaption>
+				</figure>
+				<figure class="strip__shot" data-reveal>
+					<img src="assets/img/k-saffron.jpg" alt="Saffron threads blooming in warm milk beside basmati grains" loading="lazy" decoding="async">
+					<figcaption>12:06 · saffron, blooming</figcaption>
+				</figure>
+				<figure class="strip__shot" data-reveal>
+					<img src="assets/img/b-tarkib.jpg" alt="Basmati being layered over marinated mutton in a brass deg" loading="lazy" decoding="async">
+					<figcaption>12:31 · rice over meat, again</figcaption>
+				</figure>
+				<figure class="strip__shot" data-reveal>
+					<img src="assets/img/k-lane.jpg" alt="A narrow Old Delhi lane at dusk with a small restaurant glowing" loading="lazy" decoding="async">
+					<figcaption>19:40 · the lane fills up</figcaption>
+				</figure>
+			</div>
+		</div>
+		<header class="s-card__head">
+			<span class="s-card__k"><span class="sec-tag">04</span>The rest of the card</span>
+			<h2 id="card-title" data-split>And the rest,<br><span class="serif-i">on paper.</span></h2>
+			<p class="s-card__lede">Everything below is cooked to sit next to the deg, not to survive a delivery box. Prices are in rupees, taxes in, service charge none. They hold till Diwali, then we will argue about onions again.</p>
+		</header>
+
+		<div class="s-card__cols">
+			<div class="menu">
+				<h3 class="menu__h">From the coal</h3>
+				<ul class="menu__list">
+					<li class="menu__row"><span class="menu__n">Seekh kebab</span><span class="menu__d">mutton · six pieces · onion, lemon</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">320</span></li>
+					<li class="menu__row"><span class="menu__n">Galouti, ulta tawa</span><span class="menu__d">mutton mince · sheermal underneath</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">380</span></li>
+					<li class="menu__row"><span class="menu__n">Shami kebab</span><span class="menu__d">mutton · chana dal · two pieces</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">300</span></li>
+					<li class="menu__row"><span class="menu__n">Tandoori murgh</span><span class="menu__d">half bird · hung curd · charcoal</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">360</span></li>
+				</ul>
+			</div>
+
+			<div class="menu">
+				<h3 class="menu__h">Slow, in gravy</h3>
+				<ul class="menu__list">
+					<li class="menu__row"><span class="menu__n">Nihari</span><span class="menu__d">Sunday only · six hours · nalli</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">420</span></li>
+					<li class="menu__row"><span class="menu__n">Paya</span><span class="menu__d">goat trotters · overnight · ginger</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">380</span></li>
+					<li class="menu__row"><span class="menu__n">Mutton korma</span><span class="menu__d">Awadhi · kewra · cashew</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">400</span></li>
+					<li class="menu__row"><span class="menu__n">Shorba</span><span class="menu__d">the liquid off the deg · free refill</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">120</span></li>
+				</ul>
+			</div>
+
+			<div class="menu">
+				<h3 class="menu__h">With the rice</h3>
+				<ul class="menu__list">
+					<li class="menu__row"><span class="menu__n">Roomali roti</span><span class="menu__d">thin enough to read through</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">40</span></li>
+					<li class="menu__row"><span class="menu__n">Sheermal</span><span class="menu__d">saffron · milk · slightly sweet</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">80</span></li>
+					<li class="menu__row"><span class="menu__n">Warqi paratha</span><span class="menu__d">eight layers · ghee</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">90</span></li>
+					<li class="menu__row"><span class="menu__n">Mirchi ka salan</span><span class="menu__d">peanut · sesame · green chilli</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">90</span></li>
+					<li class="menu__row"><span class="menu__n">Raita</span><span class="menu__d">curd · cucumber · boondi if you ask</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">60</span></li>
+				</ul>
+			</div>
+
+			<div class="menu">
+				<h3 class="menu__h">At the bar</h3>
+				<ul class="menu__list">
+					<li class="menu__row"><span class="menu__n">DUM Old Fashioned</span><span class="menu__d">jaggery · orange · bitters</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">520</span></li>
+					<li class="menu__row"><span class="menu__n">Nimbu soda</span><span class="menu__d">black salt · crushed ice</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">180</span></li>
+					<li class="menu__row"><span class="menu__n">Chaas</span><span class="menu__d">cumin · curry leaf · no straw</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">90</span></li>
+					<li class="menu__row"><span class="menu__n">Kadak chai</span><span class="menu__d">cutting, in a glass</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">40</span></li>
+					<li class="menu__row"><span class="menu__n">Shahi tukda</span><span class="menu__d">rabri · pistachio · cold</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__p">220</span></li>
+				</ul>
+			</div>
+		</div>
+
+		<p class="s-card__note">
+			<span class="s-card__stamp">Cash · UPI · card</span>
+			<b>No delivery.</b> The deg does not travel.
+			<span><b>No bookings after 9</b> on Fridays — come and wait with everyone else.</span>
+			<span>86 items, one kitchen. If something runs out it ran out.</span>
+		</p>
+		<p class="s-card__sign">— the rest is whatever the sabzi mandi had that morning.</p>
+	</div>
+</section>
+
+<!-- ======================= NAMES ======================= -->
+<section class="s-names" aria-labelledby="names-title">
+	<header class="s-names__head">
+		<span class="s-names__k"><span class="sec-tag">05</span>Sixteen names, one piece of advice</span>
+		<h2 data-split class="s-names__title" id="names-title">Order the one <span class="serif-i">with the bone.</span> Trust us.</h2>
+		<p class="s-names__note">We keep changing the list. Regulars keep changing our minds. Ask what came out of the deg at 8.</p>
+	</header>
+	<div class="names-row">
+		<div class="names-track">
+			<span class="name-chip">Hyderabadi</span><span class="name-chip">Lucknowi</span><span class="name-chip">Kolkata</span>
+			<span class="name-chip">Ambur</span><span class="name-chip">Bhatkali</span><span class="name-chip">Thalassery</span>
+			<span class="name-chip">Memoni</span><span class="name-chip">Sindhi</span><span class="name-chip">Dindigul</span>
+			<span class="name-chip">Yakhni</span><span class="name-chip">Moradabadi</span><span class="name-chip">Kashmiri</span>
+			<span class="name-chip">Hyderabadi</span><span class="name-chip">Lucknowi</span><span class="name-chip">Kolkata</span>
+			<span class="name-chip">Ambur</span><span class="name-chip">Bhatkali</span><span class="name-chip">Thalassery</span>
+			<span class="name-chip">Memoni</span><span class="name-chip">Sindhi</span><span class="name-chip">Dindigul</span>
+			<span class="name-chip">Yakhni</span><span class="name-chip">Moradabadi</span><span class="name-chip">Kashmiri</span>
+		</div>
+	</div>
+	<div class="names-row names-row--2 names-row--rev">
+		<div class="names-track">
+			<span class="name-chip name-chip--ghost">Kathal</span><span class="name-chip">Subz</span><span class="name-chip name-chip--ghost">Paneer</span>
+			<span class="name-chip">Aloo</span><span class="name-chip name-chip--ghost">Chana</span><span class="name-chip">Gobi</span>
+			<span class="name-chip name-chip--ghost">Kakori</span><span class="name-chip">Galouti</span><span class="name-chip name-chip--ghost">Seekh</span>
+			<span class="name-chip">Shami</span><span class="name-chip name-chip--ghost">Boti</span><span class="name-chip">Nihari</span>
+			<span class="name-chip name-chip--ghost">Kathal</span><span class="name-chip">Subz</span><span class="name-chip name-chip--ghost">Paneer</span>
+			<span class="name-chip">Aloo</span><span class="name-chip name-chip--ghost">Chana</span><span class="name-chip">Gobi</span>
+			<span class="name-chip name-chip--ghost">Kakori</span><span class="name-chip">Galouti</span><span class="name-chip name-chip--ghost">Seekh</span>
+			<span class="name-chip">Shami</span><span class="name-chip name-chip--ghost">Boti</span><span class="name-chip">Nihari</span>
+		</div>
+	</div>
+</section>
+
+<!-- ======================= DASTARKHWAN ======================= -->
+<section class="s-amigos" aria-labelledby="amigos-title">
+	<header class="s-amigos__head">
+		<span class="s-amigos__k"><span class="sec-tag">06</span>Dastarkhwan</span>
+		<h2 data-split class="s-amigos__title" id="amigos-title">Khaana <span class="serif-i">share karna</span> hota hai.</h2>
+	</header>
+
+		<figure class="print s-amigos__plate" data-tilt="1">
+			<img src="assets/img/k-pass.jpg" alt="A plate of biryani being passed from one hand to another across the table" loading="lazy" decoding="async">
+			<figcaption>pass karo · don't stand on ceremony</figcaption>
+		</figure>
+
+	<div class="s-amigos__grid">
+		<div>
+			<div class="duo__frame" data-reveal>
+				<div class="duo__illustration duo__photo"><img src="assets/img/table.jpg" alt="A home table with mutton biryani, potato and chicken kosha" loading="lazy" decoding="async"></div>
+				<p class="duo__line">One deg, four people,<br>zero leftovers.</p>
+			</div>
+			<p class="duo__caption"><span>The table, from above</span> — order one deg between four. Then order another, because four becomes six when the smell reaches the street.</p>
+		</div>
+
+		<div class="s-amigos__side">
+			<figure class="pola" data-reveal>
+				<div class="pola__illu pola__photo"><img src="assets/img/chai.jpg" alt="A chaiwala pouring masala chai in Old Delhi" loading="lazy" decoding="async"></div>
+				<figcaption>before the deg</figcaption>
+			</figure>
+			<div class="s-amigos__how">
+				<span><b>1</b><span>You point at a deg. We say <em>“that one?”</em> and mean it.</span></span>
+				<span><b>2</b><span>It arrives sealed, still ticking quietly under the atta.</span></span>
+				<span><b>3</b><span>We open it at your table. Everything after that is your business.</span></span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ======================= HOURS ======================= -->
+<section class="s-hours edge-wave" aria-labelledby="hours-title">
+	<div class="s-hours__grid">
+		<div>
+			<header class="s-hours__head">
+				<svg class="s-hours__picto" viewBox="0 0 48 48" aria-hidden="true">
+					<circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="3"/>
+					<path d="M24 14v11l7 5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+				</svg>
+				<span class="s-hours__k"><span class="sec-tag">07</span>Timings</span>
+				<h2 data-split class="s-hours__title" id="hours-title">Hum <span class="serif-i">khulte</span> hain</h2>
+			</header>
+
+			<dl class="hours" id="hours">
+				<div class="hours__row" data-day="2">
+					<dt class="hours__days">Tue — Thu</dt>
+					<dd class="hours__time"><span>12:30</span><i>→</i><span>23:00</span><span class="sr-only">open from 12:30 to 23:00</span></dd>
+					<span class="hours__today">Aaj</span>
+				</div>
+				<div class="hours__row" data-day="5">
+					<dt class="hours__days">Fri — Sat</dt>
+					<dd class="hours__time"><span>12:30</span><i>→</i><span>00:30</span><span class="sr-only">open from 12:30 to half past midnight</span></dd>
+					<span class="hours__today">Aaj</span>
+				</div>
+				<div class="hours__row" data-day="0">
+					<dt class="hours__days">Sunday</dt>
+					<dd class="hours__time"><span>12:30</span><i>→</i><span>23:00</span><span class="sr-only">open from 12:30 to 23:00</span></dd>
+					<span class="hours__today">Aaj</span>
+				</div>
+				<div class="hours__row is-closed" data-day="1">
+					<dt class="hours__days">Monday</dt>
+					<dd class="hours__time"><span>Bandh</span></dd>
+					<span class="hours__today">Aaj</span>
+				</div>
+			</dl>
+			<p class="deg-ticket" aria-hidden="true"><span>aaj ka deg</span><b><i id="degLeft">12</i> handis left</b><em>phir kal. pakka.</em></p>
+			<p class="s-hours__note">Kitchen stops 30 minutes before closing. Chai doesn't. Monday the deg rests, and so do we.</p>
+		</div>
+
+		<div class="disc-wrap" aria-hidden="true">
+			<div class="disc disc--photo">
+				<div class="disc__face"><img src="assets/img/disc.jpg" alt="" loading="lazy" decoding="async"></div>
+			</div>
+		</div>
+	</div>
+<!-- ROUND7 -->
+		<figure class="print s-hours__plate" data-tilt="1">
+			<img src="assets/img/k-chowk.jpg" alt="Chandni Chowk at night, all lit up" loading="lazy" decoding="async">
+			<figcaption>23:40 · the chowk, still awake</figcaption>
+		</figure>
+	<div class="s-hours__sign">
+		<a class="btn btn--line" href="#visit" data-cursor="Chalo">Directions
+			<svg class="btn__ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13 13 3M13 3H6M13 3v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+		</a>
+		<p class="hand" style="color:var(--jaune);font-size:clamp(14px,1.2vw,19px);max-width:22ch">Chaas is on the house. Second glass also on the house. Don't tell anyone.</p>
+	</div>
+</section>
+
+<!-- ======================= VISIT ======================= -->
+<section class="s-visit edge-wave" id="visit" aria-labelledby="visit-title">
+	<div class="s-visit__marquee" aria-hidden="true">
+		<div class="s-visit__mtrack">
+			<span>Nizamuddin <em>·</em> Dilli <em>·</em> Aa jao <em>·</em></span>
+			<span>Nizamuddin <em>·</em> Dilli <em>·</em> Aa jao <em>·</em></span>
+			<span>Nizamuddin <em>·</em> Dilli <em>·</em> Aa jao <em>·</em></span>
+		</div>
+	</div>
+
+	<div class="s-visit__grid">
+		<div class="s-visit__col">
+			<header class="s-visit__head">
+				<span class="s-visit__k"><span class="sec-tag">08</span>Yahan aaye · find us</span>
+				<h2 data-split class="s-visit__title" id="visit-title">Nizamuddin,<br><span class="serif-i">basti side.</span></h2>
+			</header>
+
+			<address class="s-visit__address">
+				<svg class="s-visit__picto" viewBox="0 0 32 40" aria-hidden="true">
+					<path d="M16 38c9-11 14-18 14-24A14 14 0 0 0 2 14c0 6 5 13 14 24Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/>
+					<circle cx="16" cy="14" r="5" fill="currentColor"/>
+				</svg>
+				<span>
+					<b>DUM — Biryani &amp; Bar</b><br>
+					189/A, Gali Qasim Jaan,<br>
+					Nizamuddin Basti, New Delhi 110013<br>
+					<em style="opacity:.7">West gate of Humayun's Tomb. Follow the smell, then the crowd.</em>
+				</span>
+			</address>
+
+			<div class="s-visit__live">
+				<div class="countdown countdown--inline" id="countdownVisit">
+					<p class="countdown__label">Dum is on · <time data-open-at>opens 12:30</time></p>
+					<p class="countdown__clock" data-clock>
+						<span><b data-d>00</b><i>din</i></span>
+						<span><b data-h>00</b><i>ghante</i></span>
+						<span><b data-m>00</b><i>min</i></span>
+						<span><b data-s>00</b><i>sec</i></span>
+					</p>
+					<p class="countdown__open"><span data-open-k>Khula hai</span><span data-open-v>till 23:00</span></p>
+				</div>
+			</div>
+
+			<div class="s-visit__actions">
+				<a class="btn btn--creme" href="https://www.google.com/maps/search/?api=1&amp;query=Nizamuddin+Basti+New+Delhi" target="_blank" rel="noopener" data-cursor="Rasta">Directions
+					<svg class="btn__ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13 13 3M13 3H6M13 3v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+				</a>
+				<a class="btn btn--line" href="tel:+911141027788" data-cursor="Call">011 4102 7788</a>
+				<a class="btn btn--line" href="https://instagram.com" target="_blank" rel="noopener">@dum.delhi</a>
+				<a class="btn btn--line" href="#gallery" data-cursor="Dekho">The plates</a>
+			</div>
+
+			<ul class="s-visit__pictos">
+				<li>
+					<span class="s-visit__bubble"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 12h26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M6 12c2 6 4 12 10 12s8-6 10-12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M16 12V5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="4" r="2" fill="currentColor"/></svg></span>
+					<span>Chhat</span>
+				</li>
+				<li>
+					<span class="s-visit__bubble"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 5c0 18 2 23 7 23s7-5 7-23Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M11 15c3-1 7-1 10 0" stroke="currentColor" stroke-width="2.2" fill="none"/><path d="M13 3c2-2 5-2 7 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+					<span>Chaas &amp; beer</span>
+				</li>
+				<li>
+					<span class="s-visit__bubble"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 17c4-8 12-11 21-8 3 7-2 14-10 16-5 1-9 0-11-8Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M24 8c2-2 4-2 5-1" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span>
+					<span>Teekha</span>
+				</li>
+				<li>
+					<span class="s-visit__bubble"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="9" width="24" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M4 14h24" stroke="currentColor" stroke-width="4"/><path d="M8 19h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+					<span>Card &amp; UPI</span>
+				</li>
+			</ul>
+			<p class="s-visit__note">Auto bhaiya: <span>“Nizamuddin Basti, dargah ke paas.”</span> Bas. Woh khud samajh jaayega.</p>
+		</div>
+
+		<figure class="vmap">
+			<div class="vmap__frame">
+				<svg class="vmap__art" viewBox="0 0 640 520" aria-label="Hand-drawn map of Nizamuddin, Delhi">
+					<rect width="640" height="520" fill="#E7DAB6"/>
+					<g opacity=".5" stroke="#E0D6BC" stroke-width="1">
+						<path d="M0 60h640M0 120h640M0 180h640M0 240h640M0 300h640M0 360h640M0 420h640M0 480h640"/>
+					</g>
+					<!-- greens -->
+					<path d="M352 24h250v180c-86 8-168 2-250-16Z" fill="#C6DBB2" opacity=".85"/>
+										<path d="M30 300c60-14 130-10 180 16-30 44-96 62-160 44Z" fill="#C6DBB2" opacity=".85"/>
+					<!-- railway -->
+					<g stroke="#8C8574" stroke-width="3" stroke-dasharray="12 8">
+						<path d="M-10 132 640 40"/>
+					</g>
+					<text x="470" y="86" font-family="Archivo, sans-serif" font-size="10" letter-spacing="1.2" fill="#8C8574" transform="rotate(-7 470 86)">RAILWAY</text>
+					<!-- Mathura Road -->
+					<path d="M-20 520 620 20" stroke="#D9CDAE" stroke-width="46" stroke-linecap="round"/>
+					<path d="M-20 520 620 20" stroke="#FCF5E3" stroke-width="38" stroke-linecap="round"/>
+					<path d="M-20 520 620 20" stroke="#E5D9BA" stroke-width="2" stroke-dasharray="14 14"/>
+					<text x="452" y="150" font-family="Archivo, sans-serif" font-size="12" letter-spacing="2" fill="#9C8F72" transform="rotate(-38 452 150)">MATHURA ROAD</text>
+					<!-- Lodhi Road -->
+					<path d="M-20 452c160-26 340-52 680-66" stroke="#FCF5E3" stroke-width="30"/>
+					<path d="M-20 452c160-26 340-52 680-66" stroke="#D9CDAE" stroke-width="36" stroke-dasharray="0"/>
+					<path d="M-20 452c160-26 340-52 680-66" stroke="#FCF5E3" stroke-width="30"/>
+					<text x="40" y="430" font-family="Archivo, sans-serif" font-size="12" letter-spacing="2" fill="#9C8F72">LODHI ROAD</text>
+					<!-- Barapullah -->
+					<path d="M-10 496c120-40 300-46 660-10" stroke="#8FBFC2" stroke-width="16" fill="none" opacity=".7"/>
+					<text x="500" y="502" font-family="Archivo, sans-serif" font-size="9" letter-spacing="1.4" fill="#5F8E91">BARAPULLAH</text>
+					<!-- basti lanes -->
+					<g stroke="#FFFDF4" stroke-width="13" stroke-linecap="round" fill="none">
+						<path d="M262 300l96-46 84 30"/>
+						<path d="M300 372l-6-72 88-52"/>
+						<path d="M356 258l56 84 78-24"/>
+						<path d="M296 384l106 12 66-56"/>
+						<path d="M400 344l-12-96"/>
+					</g>
+					<g stroke="#E0D3B0" stroke-width="1.6" fill="none" stroke-dasharray="6 7">
+						<path d="M262 300l96-46 84 30M300 372l-6-72 88-52M356 258l56 84 78-24M296 384l106 12 66-56M400 344l-12-96"/>
+					</g>
+					<!-- buildings -->
+					<g fill="#DFD2B2" stroke="#C8B893" stroke-width="1.2">
+						<rect x="268" y="252" width="26" height="20" rx="2" transform="rotate(-8 268 252)"/>
+						<rect x="336" y="288" width="30" height="22" rx="2" transform="rotate(6 336 288)"/>
+						<rect x="378" y="228" width="24" height="18" rx="2" transform="rotate(-12 378 228)"/>
+						<rect x="410" y="316" width="28" height="20" rx="2" transform="rotate(4 410 316)"/>
+						<rect x="288" y="330" width="22" height="18" rx="2" transform="rotate(-6 288 330)"/>
+						<rect x="238" y="344" width="26" height="18" rx="2" transform="rotate(10 238 344)"/>
+					</g>
+					<!-- Humayun's tomb -->
+					<g>
+						<rect x="40" y="200" width="150" height="120" rx="4" fill="#E2D5B4" stroke="#C8B893" stroke-width="1.4"/>
+						<path d="M40 260h150M115 200v120" stroke="#C8B893" stroke-width="1.2" stroke-dasharray="5 5"/>
+						<g transform="translate(115 248)">
+							<path d="M-26 6c0-18 12-30 26-30s26 12 26 30Z" fill="#EFE9D6" stroke="#B9A882" stroke-width="1.6"/>
+							<rect x="-20" y="6" width="40" height="14" fill="#EFE9D6" stroke="#B9A882" stroke-width="1.6"/>
+							<path d="M0-30v-8" stroke="#B9A882" stroke-width="2"/>
+						</g>
+											</g>
+					<!-- Dargah -->
+					<g transform="translate(232 336)">
+						<rect x="-16" y="-6" width="32" height="16" fill="#EFE9D6" stroke="#B9A882" stroke-width="1.4"/>
+						<path d="M-16-6c0-12 8-20 16-20s16 8 16 20Z" fill="#EFE9D6" stroke="#B9A882" stroke-width="1.4"/>
+						<path d="M-22-6v-16M22-6v-16" stroke="#B9A882" stroke-width="2"/>
+					</g>
+					<!-- Sabz Burj -->
+					<g transform="translate(470 268)">
+						<path d="M-12 6c0-10 5-16 12-16s12 6 12 16Z" fill="#B9CFA8" stroke="#8FAA7C" stroke-width="1.4"/>
+						<rect x="-12" y="6" width="24" height="10" fill="#E2D5B4" stroke="#8FAA7C" stroke-width="1.4"/>
+					</g>
+					<!-- compass + scale -->
+					<g transform="translate(588 448)" opacity=".75">
+						<circle r="22" fill="none" stroke="#9C8F72" stroke-width="1.4"/>
+						<path d="M0-18 5 4 0-1-5 4Z" fill="#C03A17"/>
+						<text x="0" y="34" text-anchor="middle" font-family="Archivo, sans-serif" font-size="9" letter-spacing="1" fill="#9C8F72">N</text>
+					</g>
+					<g transform="translate(38 486)" opacity=".8">
+						<path d="M0 0h72" stroke="#9C8F72" stroke-width="3"/>
+						<path d="M0-4v8M36-4v8M72-4v8" stroke="#9C8F72" stroke-width="2"/>
+						<text x="0" y="-8" font-family="Archivo, sans-serif" font-size="9" letter-spacing="1" fill="#9C8F72">200 M</text>
+					</g>
+				</svg>
+
+				<span class="vmap__ripple"></span>
+				<span class="vmap__ripple vmap__ripple--2"></span>
+				<span class="vmap__pin-wrap">
+					<span class="vmap__pin"><b></b></span>
+				</span>
+				<span class="vmap__aqui">yahan hai · DUM</span>
+
+				<span class="vmap__poi" style="left:30%;top:49%">Humayun's Tomb</span>
+				<span class="vmap__poi" style="left:37%;top:63%">Nizamuddin Dargah</span>
+				<span class="vmap__poi" style="left:75%;top:49%">Sabz Burj</span>
+				<span class="vmap__poi" style="left:66%;top:15%">Sunder Nursery</span>
+				<span class="vmap__poi" style="left:24%;top:81%">Bhogal</span>
+				<span class="vmap__poi" style="left:74%;top:83%">Sarai Kale Khan</span>
+			</div>
+			<figcaption class="vmap__credit">Drawn by hand in the basti · not to scale · please don't navigate with this</figcaption>
+		</figure>
+	</div>
+		<figure class="print s-visit__plate" data-tilt="1">
+			<img src="assets/img/k-jama.jpg" alt="Jama Masjid lit up at night" loading="lazy" decoding="async">
+			<figcaption>pados · follow the minarets</figcaption>
+		</figure>
+
+</section>
+
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="s-end edge-wave">
+	<div class="s-end__glow" aria-hidden="true"></div>
+	<div class="s-end__marquee" aria-hidden="true"><div class="end-track" id="endTrack"><span>Aa jao <i>✳</i> dum laga ke <i>✳</i> aa jao <i>✳</i> dum laga ke <i>✳</i>&nbsp;</span><span>Aa jao <i>✳</i> dum laga ke <i>✳</i> aa jao <i>✳</i> dum laga ke <i>✳</i>&nbsp;</span></div></div>
+	<a class="s-end__bar" href="#contenu" data-cursor="Upar">
+		<span class="s-end__bar-k">DUM · Biryani &amp; Bar — Nizamuddin, Delhi</span>
+		<span class="s-end__bar-url">dum.delhi
+			<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13 13 3M13 3H6M13 3v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+		</span>
+	</a>
+
+	<p class="s-end__trad">dum laga ke,<br>dheere se.</p>
+	<p class="s-end__big" aria-label="Aa jao"><span>Aa</span><span>jao</span></p>
+
+	<div class="s-end__meta">
+		<svg class="s-end__logo" viewBox="0 0 120 48" aria-hidden="true">
+			<text x="2" y="34" font-family="Archivo, Arial Black, sans-serif" font-weight="800" font-size="26" letter-spacing="-1" fill="currentColor">DUM</text>
+			<circle cx="92" cy="16" r="3" fill="#E8A013"/>
+		</svg>
+		<nav class="s-end__links" aria-label="Footer">
+			<a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+			<a href="https://www.google.com/maps/search/?api=1&amp;query=Nizamuddin+Basti+New+Delhi" target="_blank" rel="noopener">Directions</a>
+			<a href="tel:+911141027788">011 4102 7788</a>
+			<a href="mailto:hello@dum.delhi">hello@dum.delhi</a>
+			<span>Delhi · since 2016</span>
+		</nav>
+		<p class="s-end__credit">Photographed on a Tuesday, in the basti. <b>Two night frames borrowed</b> (credited below) — the rest shot here, no stock.</p>
+	</div>
+
+	<p class="s-end__hint">
+		Demo build. The address, phone number, handles and timings above are placeholders for a fictional restaurant —
+		swap them for yours before this goes live. Everything else (layout, illustrations, 3D, motion) is yours to keep.
+	</p>
+	<p class="s-end__credits">Shot in the DUM kitchen, October 2026 · Structure after a site we love · One HTML file, no trackers, no cookies, nothing loading from anywhere. Two night frames: Stuti B, Striving tranquil (CC&nbsp;BY-SA, Wikimedia Commons).</p>
+</footer>
+
+<!--SPRITE-->
+<script>/*JS*/</script>
+</body>
+</html>
