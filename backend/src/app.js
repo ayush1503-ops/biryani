@@ -7,20 +7,20 @@ const morgan = require('morgan');
 
 const { supabase } = require('./config/supabase');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
-
 const authRoutes = require('./routes/authRoutes');
 const menuRoutes = require('./routes/menuRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 
-// Verify Supabase connection on startup
+// Verify Supabase connection on startup (non-fatal — app keeps running,
+// routes will return clear errors if Supabase is not configured)
 supabase
   .from('menu_items')
   .select('id')
   .limit(1)
   .then(() => console.log('Supabase connected'))
   .catch((err) => {
-    console.error('Supabase connection failed:', err.message);
-    process.exit(1);
+    console.warn('Supabase not configured:', err.message);
+    console.warn('Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in .env to enable the API.');
   });
 
 const app = express();
@@ -31,6 +31,17 @@ app.use(cors({ origin: process.env.CORS_ORIGIN || '*' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
+
+// Guard: if Supabase isn't configured, return 503 for all API routes
+app.use('/api', (req, res, next) => {
+  if (!supabase) {
+    return res.status(503).json({
+      error: 'service_unavailable',
+      message: 'Supabase not configured. Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in .env',
+    });
+  }
+  next();
+});
 
 // Health check
 app.get('/api/health', async (req, res) => {

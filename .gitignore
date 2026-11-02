@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Backend
+backend/node_modules/
+backend/.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Shots / screenshots (QA artifacts)
+shots/
+
+# Python build outputs
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/

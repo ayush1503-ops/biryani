@@ -5,6 +5,10 @@ const { supabase } = require('../config/supabase');
 // @route   GET /api/menu
 // @access  Public
 const getMenuItems = asyncHandler(async (req, res) => {
+  if (!supabase) {
+    res.status(503);
+    throw new Error('Supabase not configured. Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.');
+  }
   const { category, isAvailable } = req.query;
 
   let query = supabase.from('menu_items').select('*').order('created_at', { ascending: false });
