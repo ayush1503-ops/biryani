@@ -1,9 +1,21 @@
 {
   "name": "dum-biryani-bar",
   "version": "1.0.0",
-  "description": "DUM — Biryani & Bar, Nizamuddin, Delhi. Static restaurant site.",
+  "description": "DUM — Biryani & Bar, Nizamuddin, Delhi. Static restaurant site on Vite.",
   "private": true,
+  "type": "module",
   "engines": {
     "node": ">=18.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5"
   }
 }
