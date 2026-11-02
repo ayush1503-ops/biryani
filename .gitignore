@@ -1,0 +1,42 @@
+# ---------------------------------------------------------------
+# Bro Biryani — .gitignore
+# Project source: index.html, styles.css, app.js, server.js
+# ---------------------------------------------------------------
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Environment & config
+.env
+.env.local
+.env.*.local
+.vercel
+vercel.json.project
+
+# Operating system
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# Localhost dev output
+start-localhost.bat
+
+# ---------------------------------------------------------------
+# Agent / tooling infrastructure — NOT part of the public site
+# ---------------------------------------------------------------
+.agent/
+.agents/
+.gemini/
+.gsd/
+adapters/
+scripts/
+GSD-STYLE.md
+PROJECT_RULES.md

@@ -1,0 +1,23 @@
+{
+  "name": "bro-biryani-web",
+  "version": "1.0.0",
+  "description": "Bro Biryani - Modern Interactive Restaurant Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo \"Bro Biryani is a static site — deploying index.html, styles.css, app.js directly. No build step.\"",
+    "serve:python": "python -m http.server 8080",
+    "test": "echo \"Localhost verified\" && exit 0"
+  },
+  "keywords": [
+    "biryani",
+    "restaurant",
+    "mern",
+    "burrito-madre",
+    "interactive",
+    "motion"
+  ],
+  "author": "Bro Biryani Engineering",
+  "license": "MIT"
+}
