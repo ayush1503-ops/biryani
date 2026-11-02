@@ -28,6 +28,10 @@ npm-debug.log*
 
 # Localhost dev output
 start-localhost.bat
+server.js
+
+# Unnecessary project files
+VERSION
 
 # ---------------------------------------------------------------
 # Agent / tooling infrastructure — NOT part of the public site
