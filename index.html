@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bro Biryani | Dum Biryani, Bangalore &amp; Hyderabad</title>
-  <meta name="description" content="Slow-cooked dum biryani — Hyderabadi chicken, Lucknowi mutton, Kolkata aloo, and shahi paneer. Express delivery and table reservations in Bangalore, Hyderabad, and Mumbai.">
+  <meta name="theme-color" content="#1F4A38">
+  <title>DUM — Biryani &amp; Bar, Nizamuddin, Delhi</title>
+  <meta name="description" content="Slow-cooked dum pukht biryani, sealed with dough and opened at your table. Gali Qasim Jaan, Nizamuddin Basti, Delhi.">
+  <meta property="og:title" content="DUM — Biryani &amp; Bar, Nizamuddin, Delhi">
+  <meta property="og:description" content="Slow-cooked dum pukht biryani, sealed with dough and opened at your table.">
+  <meta property="og:type" content="website">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23C8861E'/%3E%3Cpath d='M12 12l4 4 8-8' stroke='%23FFFFFF' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23143325'/%3E%3Cpath d='M20 40c0-8 5-14 12-14s12 6 12 14' fill='none' stroke='%23E8A013' stroke-width='5' stroke-linecap='round'/%3E%3Cellipse cx='32' cy='41' rx='14' ry='3' fill='%23F6EDD8'/%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,90 +23,320 @@
       theme: {
         extend: {
           colors: {
-            ink: '#1C1814',
-            offwhite: '#F7F3EA',
-            surface: '#2A241E',
-            saffron: '#C8861E',
-            vermilion: '#B4523C',
-            border: '#3A322A',
+            ink: '#143325',
+            deep: '#0E261B',
+            surface: '#1A3A2E',
+            offwhite: '#F6EDD8',
+            cream: '#EFE6D2',
+            saffron: '#E8A013',
+            saffron-dark: '#B87A12',
+            vermilion: '#C03A17',
+            green: '#1F4A38',
+            green-dark: '#17806F',
+            border: '#2D4A3C',
             muted: '#8A7A66',
+          },
+          fontFamily: {
+            sans: ['Figtree', 'system-ui', 'sans-serif'],
+            display: ['Playfair Display', 'Georgia', 'serif'],
+          },
+          fontSize: {
+            'display': ['clamp(2.5rem, 6vw, 5rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+            'heading': ['clamp(2rem, 5vw, 3.5rem)', { lineHeight: '1.15', letterSpacing: '-0.01em' }],
           }
         }
       }
     }
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-sans antialiased bg-ink text-offwhite">
+<body class="font-sans antialiased bg-ink text-offwhite selection:bg-saffron selection:text-ink">
 
-  <!-- Promo bar -->
-  <div class="bg-vermilion text-white py-2 px-4 text-center text-xs sm:text-sm font-semibold tracking-wider flex items-center justify-center gap-2 border-b border-vermilion-dark">
-    <i data-lucide="flame" class="w-3.5 h-3.5"></i>
-    <span>CODE <strong>BRO15</strong> — 15% off your dum feast + free burani raita</span>
-    <button id="copy-promo-banner" class="ml-2 bg-ink text-white px-3 py-0.5 rounded-full text-xs border border-white/30">Copy Code</button>
+  <!-- ======================= INTRO SEQUENCE ======================= -->
+  <div id="intro" class="fixed inset-0 z-[9999] bg-ink flex flex-col items-center justify-center">
+    <div class="intro-panels absolute inset-0 flex">
+      <div class="w-1/5 bg-ink"></div>
+      <div class="w-1/5 bg-surface/30"></div>
+      <div class="w-1/5 bg-ink"></div>
+      <div class="w-1/5 bg-surface/30"></div>
+      <div class="w-1/5 bg-ink"></div>
+    </div>
+    <div class="relative z-10 text-center">
+      <h1 class="font-display font-black text-[clamp(3rem,8vw,6rem)] leading-none text-offwhite mb-2 tracking-tighter">
+        <span class="block">D<em>U</em>M</span>
+      </h1>
+      <p class="text-saffron text-xs font-bold uppercase tracking-widest">Biryani &amp; Bar · Nizamuddin</p>
+      <div class="mt-8 w-64 h-1 bg-border/30 relative overflow-hidden">
+        <div id="introBar" class="absolute left-0 top-0 h-full bg-saffron w-0"></div>
+      </div>
+    </div>
+    <p id="introMsg" class="mt-6 text-muted text-sm font-medium"></p>
+    <button id="skipIntro" class="mt-8 text-xs font-bold uppercase tracking-wider text-muted hover:text-saffron transition-colors">Skip intro</button>
   </div>
 
-  <header id="main-header" class="sticky top-0 z-50 border-b border-border w-full bg-ink/90 backdrop-blur">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between py-4">
-      <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-9 h-9 rounded-full bg-vermilion flex items-center justify-center group-hover:bg-saffron transition-colors">
-          <i data-lucide="utensils" class="w-4 h-4 text-white"></i>
-        </div>
-        <div>
-          <span class="font-display font-black text-lg tracking-tight text-offwhite">BRO <span class="text-saffron">BIRYANI</span></span>
-          <span class="block text-[10px] font-bold uppercase tracking-widest text-muted-soft -mt-1">Dum kitchen</span>
-        </div>
+  <!-- ======================= CURSOR ======================= -->
+  <div class="cursor fixed pointer-events-none z-50 hidden md:block">
+    <span class="cursor-dot"></span>
+    <span class="cursor-label">Dekho</span>
+  </div>
+
+  <!-- ======================= TOPBAR ======================= -->
+  <header id="topbar" class="topbar fixed top-0 left-0 right-0 z-40 border-b border-border bg-ink/90 backdrop-blur-md transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="#contenu" class="topbar-logo flex items-center gap-3 group" aria-label="DUM — back to top">
+        <svg class="w-8 h-8 text-offwhite group-hover:text-saffron transition-colors" viewBox="0 0 120 48" aria-hidden="true">
+          <path d="M4 38c0-10 4-16 12-16s12 6 12 16" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" transform="translate(4,-6) scale(.85)"/>
+          <text x="2" y="34" font-family="Archivo, Arial Black, sans-serif" font-weight="800" font-size="26" letter-spacing="-1" fill="currentColor">DUM</text>
+          <circle cx="92" cy="16" r="3" fill="#E8A013"/>
+        </svg>
+        <span class="text-[10px] font-black uppercase tracking-widest text-saffron">दम</span>
       </a>
-
-      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-offwhite/70">
-        <a href="#hero" class="hover:text-saffron transition-colors">Home</a>
-        <a href="#menu-section" class="hover:text-saffron transition-colors">Menu</a>
-        <a href="#reservations-section" class="hover:text-saffron transition-colors">Reservations</a>
-        <a href="#outlets-section" class="hover:text-saffron transition-colors">Outlets</a>
-      </nav>
-
-      <div class="hidden lg:flex items-center gap-3">
-        <button onclick="openReservationModal()" class="text-xs font-bold uppercase tracking-wider border border-offwhite/30 px-4 py-1.5 rounded-full hover:bg-saffron hover:border-saffron hover:text-ink transition-colors">Book Table</button>
-        <a href="#menu-section" class="btn-primary text-xs font-bold uppercase tracking-wider px-5 py-1.5">Order Online</a>
-        <button onclick="toggleCart(true)" class="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-surface transition-colors"><i data-lucide="shopping-cart" class="w-4 h-4"></i></button>
+      <div class="hidden lg:flex items-center gap-6 text-xs font-bold uppercase tracking-wider text-muted">
+        <a href="#menu" class="hover:text-saffron transition-colors">Menu</a>
+        <a href="#story" class="hover:text-saffron transition-colors">The Dum</a>
+        <a href="#gallery" class="hover:text-saffron transition-colors">Plates</a>
+        <a href="#visit" class="hover:text-saffron transition-colors">Visit</a>
       </div>
-
-      <button id="mobile-menu-toggle" class="lg:hidden p-2 text-offwhite"><i data-lucide="menu" class="w-5 h-5"></i></button>
+      <div class="flex items-center gap-2">
+        <a href="#visit" class="text-xs font-bold uppercase tracking-wider border border-border px-4 py-1.5 rounded-full hover:bg-saffron hover:border-saffron hover:text-ink transition-colors">Directions</a>
+        <button id="mobileMenuBtn" class="lg:hidden p-2 text-offwhite"><i data-lucide="menu" class="w-5 h-5"></i></button>
+      </div>
     </div>
-    <div id="mobile-menu" class="hidden lg:hidden px-4 pt-3 pb-5 border-t border-border bg-ink/95 space-y-3">
-      <a href="#hero" class="block py-2 text-base font-medium hover:text-saffron transition-colors">Home</a>
-      <a href="#menu-section" class="block py-2 text-base font-medium hover:text-saffron transition-colors">Menu</a>
-      <a href="#reservations-section" class="block py-2 text-base font-medium hover:text-saffron transition-colors">Reservations</a>
-      <a href="#outlets-section" class="block py-2 text-base font-medium hover:text-saffron transition-colors">Outlets</a>
-      <div class="pt-2 flex flex-col gap-2">
-        <button onclick="openReservationModal()" class="w-full text-center block border border-offwhite/30 py-2.5 text-xs font-bold uppercase tracking-wider rounded-full hover:bg-saffron hover:border-saffron hover:text-ink transition-colors">Book Table</a>
-        <a href="#menu-section" class="w-full text-center block btn-primary py-3 text-sm font-black">Order Online Now</a>
+    <div id="mobileMenu" class="hidden lg:hidden px-4 pt-3 pb-5 border-t border-border bg-ink/95 space-y-3">
+      <a href="#menu" class="block py-2 text-base font-medium hover:text-saffron transition-colors">Menu</a>
+      <a href="#story" class="block py-2 text-base font-medium hover:text-saffron transition-colors">The Dum</a>
+      <a href="#gallery" class="block py-2 text-base font-medium hover:text-saffron transition-colors">Plates</a>
+      <a href="#visit" class="block py-2 text-base font-medium hover:text-saffron transition-colors">Visit</a>
+      <div class="pt-4 border-t border-border/50">
+        <a href="#visit" class="w-full text-center block border border-border px-4 py-2.5 rounded-full hover:bg-saffron hover:border-saffron hover:text-ink transition-colors text-xs font-bold uppercase tracking-wider">Directions</a>
       </div>
     </div>
   </header>
 
-  <main>
+  <main id="contenu" class="relative">
 
-    <!-- Hero -->
-    <section id="hero" class="relative py-20 lg:py-32 border-b border-border/50">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="lg:grid lg:grid-cols-12 gap-16 items-center">
-          <div class="lg:col-span-6 order-2 lg:order-1">
-            <p class="text-saffron text-xs font-bold uppercase tracking-widest mb-4">Dum kitchen · Bangalore · Hyderabad · Mumbai</p>
-            <h1 class="font-display font-black text-[clamp(2.5rem,6vw,5rem)] leading-none text-offwhite mb-6">Slow-cooked<br>dum biryani.</h1>
-            <p class="text-muted text-lg max-w-xl mb-8 leading-relaxed">Hyderabadi chicken dum, Lucknowi mutton, Kolkata aloo, and shahi paneer — clay-sealed and slow-cooked for 3.5 hours. Express delivery or counter pickup.</p>
-            <div class="flex flex-col sm:flex-row gap-3">
-              <a href="#menu-section" class="btn-primary text-sm font-black px-6 py-3">Order Online</a>
-              <button onclick="openReservationModal()" class="btn-outline text-sm font-bold px-6 py-3">Book a Table</button>
+    <!-- ======================= HERO ======================= -->
+    <section id="hero" class="s-hero relative py-20 lg:py-32 border-b border-border/50 overflow-hidden" data-reveal>
+      <div class="s-hero-bg absolute inset-0 -z-10">
+        <svg class="w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="none">
+          <defs>
+            <pattern id="motif" x="0" y="0" width="400" height="200" patternUnits="userSpaceOnUse" patternTransform="rotate(-6)">
+              <text x="0" y="60" font-family="Archivo, Arial Black, sans-serif" font-weight="800" font-size="36" letter-spacing="2" fill="rgba(255,255,255,0.03)">DUM PUKHT ·</text>
+              <text x="0" y="140" font-family="Archivo, Arial Black, sans-serif" font-weight="800" font-size="36" letter-spacing="2" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1">SLOW COOKED ·</text>
+              <text x="140" y="220" font-family="Archivo, Arial Black, sans-serif" font-weight="800" font-size="36" letter-spacing="2" fill="rgba(255,255,255,0.03)">SEALED ·</text>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#motif)"/>
+        </svg>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:grid lg:grid-cols-12 gap-16 items-start">
+          <div class="lg:col-span-7 mb-16 lg:mb-0">
+            <p class="s-hero-kicker text-saffron text-xs font-bold uppercase tracking-widest mb-4">Biryani &amp; Bar · by DUM · Nizamuddin · Dilli</p>
+            <h1 class="font-display font-black text-[clamp(3rem,8vw,6rem)] leading-none text-offwhite mb-8 tracking-tighter">
+              D<em>U</em>M
+            </h1>
+            <p class="text-muted text-lg max-w-xl mb-10 leading-relaxed">
+              Basmati, saffron, mutton, and four hours of <b>doing nothing</b> — the good kind of nothing.<br>
+              Sealed at 8. Opened at your table.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="#menu" class="btn-primary text-sm font-black px-8 py-4 uppercase tracking-wider">View the plates</a>
+              <a href="#visit" class="btn-outline text-sm font-bold px-8 py-4 uppercase tracking-wider">Directions</a>
+            </div>
+            <div class="mt-12 flex items-start gap-6 text-xs text-muted border-t border-border/50 pt-6">
+              <span class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i> Tue–Sat · 12:30 → 23:00</span>
+              <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4"></i> Gali Qasim Jaan</span>
+              <span class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> 011 4102 7788</span>
             </div>
           </div>
-          <div class="lg:col-span-6 order-1 lg:order-2 relative">
-            <div class="aspect-square border border-border bg-surface/10 overflow-hidden relative group">
-              <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=900&q=80" alt="Dum biryani pot" class="w-full h-full object-cover object-center opacity-90 group-hover:opacity-100 transition duration-500">
-              <div class="absolute inset-0 bg-gradient-to-b from-transparent via-ink/20 to-ink/80"></div>
-              <div class="absolute bottom-4 left-4 right-4">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-ink text-offwhite text-xs font-bold rounded-full backdrop-blur"><i data-lucide="flame" class="w-3 h-3 text-saffron"></i><span>Slow dum · 3.5 hours</span></div>
+          <div class="lg:col-span-5 relative h-[500px] lg:h-[600px]">
+            <div class="deg-hero absolute inset-0 flex items-center justify-center">
+              <div class="relative w-full max-w-[380px] aspect-square group">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-surface/20 to-ink rounded-[30px]"></div>
+                <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=900&q=80" 
+                     alt="Open brass handi of mutton dum biryani" 
+                     class="w-full h-full object-cover object-center rounded-[30px] shadow-2xl group-hover:scale-[1.02] transition duration-700"
+                     loading="lazy">
+                <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+                  <div class="inline-flex items-center gap-2 px-4 py-2 bg-ink/90 backdrop-blur text-offwhite text-xs font-bold rounded-full border border-border/50">
+                    <i data-lucide="flame" class="w-3 h-3 text-saffron"></i><span>Slow dum · 3.5 hours</span>
+                  </div>
+                  <div class="text-right">
+                    <p class="text-xs font-bold text-muted uppercase tracking-wider">Deg No. 4</p>
+                    <p class="text-sm font-bold text-offwhite">Mutton · 9:42 PM</p>
+                  </div>
+                </div>
+                <button id="unsealBtn" class="absolute top-6 right-6 w-12 h-12 rounded-full bg-surface border border-border flex items-center justify-center hover:bg-saffron hover:border-saffron hover:text-ink transition-all shadow-lg z-10">
+                  <i data-lucide="sparkles" class="w-5 h-5"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#story" class="s-hero-scroll absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-muted">Scroll · neeche</span>
+        <div class="w-1 h-4 bg-muted animate-bounce"></div>
+      </a>
+    </section>
+
+    <!-- ======================= MARQUEE ======================= -->
+    <section id="marquee" class="s-marquee border-b border-border/50 overflow-hidden">
+      <div class="marquee-container overflow-hidden h-16 bg-ink">
+        <div class="marquee-track flex animate-marquee">
+          <div class="marquee-group whitespace-nowrap px-8 py-4">
+            <span class="marquee-word text-saffron font-bold text-sm uppercase tracking-wider">Biryani</span>
+            <svg class="marquee-ico w-6 h-6 text-muted ml-2" viewBox="0 0 60 60"><path d="M30 6c3 6 2 10-1 13 5-2 8-6 9-11 5 6 5 11 1 15 5 0 9-2 12-6 1 8-3 13-9 15 5 2 10 2 15-1-3 7-9 10-15 9 3 5 7 8 13 9-7 4-13 3-17-2-1 6 1 11 5 15-8 0-12-5-12-11-4 5-5 10-3 16-6-3-8-9-6-15-5 3-9 7-10 13-3-7-1-13 4-17-6 1-11-1-14-5 6-2 11-1 15 2-4-5-5-10-3-15 4 4 7 7 8 11-2-6 0-11 4-14 2 4 3 8 2 11 2-5 6-9 11-10Z" fill="currentColor"/></svg>
+            <span class="marquee-word font-bold text-sm uppercase tracking-wider">Kebab</span>
+            <svg class="marquee-ico w-6 h-6 text-muted ml-2" viewBox="0 0 60 60"><path d="M8 30c8-14 24-20 40-16 6 12-4 26-18 30-10 3-19 0-22-14Z" fill="currentColor"/></svg>
+            <span class="marquee-word font-bold text-sm uppercase tracking-wider">Chaas</span>
+            <svg class="marquee-ico w-6 h-6 text-muted ml-2" viewBox="0 0 60 60"><path d="M30 4c8 0 14 6 14 14 0 12-6 22-14 38-8-16-14-26-14-38 0-8 6-14 14-14Z" fill="currentColor"/></svg>
+            <span class="marquee-word text-saffron font-bold text-sm uppercase tracking-wider">Dum</span>
+            <span class="ml-4 text-muted">✱</span>
+            <span class="marquee-word font-bold text-sm uppercase tracking-wider">Thoda thoda sab kuch</span>
+            <span class="ml-2 text-muted">✱</span>
+            <span class="marquee-word font-bold text-sm uppercase tracking-wider">Bahut zyada accha</span>
+            <span class="ml-2 text-muted">✱</span>
+            <span class="marquee-word font-bold text-sm uppercase tracking-wider">Ek aur plate, phir chalte hain</span>
+          </div>
+          <div class="marquee-group whitespace-nowrap px-8 py-4">
+            <span class="marquee-word text-saffron font-bold text-sm uppercase tracking-wider">Biryani</span>
+            <svg class="marquee-ico w-6 h-6 text-muted ml-2" viewBox="0 0 60 60"><path d="M30 6c3 6 2 10-1 13 5-2 8-6 9-11 5 6 5 11 1 15 5 0 9-2 12-6 1 8-3 13-9 15 5 2 10 2 15-1-3 7-9 10-15 9 3 5 7 8 13 9-7 4-13 3-17-2-1 6 1 11 5 15-8 0-12-5-12-11-4 5-5 10-3 16-6-3-8-9-6-15-5 3-9 7-10 13-3-7-1-13 4-17-6 1-11-1-14-5 6-2 11-1 15 2-4-5-5-10-3-15 4 4 7 7 8 11-2-6 0-11 4-14 2 4 3 8 2 11 2-5 6-9 11-10Z" fill="currentColor"/></svg>
+            <span class="marquee-word font-bold text-sm uppercase tracking-wider">Kebab</span>
+            <svg class="marquee-ico w-6 h-6 text-muted ml-2" viewBox="0 0 60 60"><path d="M8 30c8-14 24-20 40-16 6 12-4 26-18 30-10 3-19 0-22-14Z" fill="currentColor"/></svg>
+            <span class="marquee-word font-bold text-sm uppercase tracking-wider">Chaas</span>
+            <svg class="marquee-ico w-6 h-6 text-muted ml-2" viewBox="0 0 60 60"><path d="M30 4c8 0 14 6 14 14 0 12-6 22-14 38-8-16-14-26-14-38 0-8 6-14 14-14Z" fill="currentColor"/></svg>
+            <span class="marquee-word text-saffron font-bold text-sm uppercase tracking-wider">Dum</span>
+            <span class="ml-4 text-muted">✱</span>
+            <span class="marquee-word font-bold text-sm uppercase tracking-wider">Thoda thoda sab kuch</span>
+            <span class="ml-2 text-muted">✱</span>
+            <span class="marquee-word font-bold text-sm uppercase tracking-wider">Bahut zyada accha</span>
+            <span class="ml-2 text-muted">✱</span>
+            <span class="marquee-word font-bold text-sm uppercase tracking-wider">Ek aur plate, phir chalte hain</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= DEFINITION / STORY ======================= -->
+    <section id="story" class="s-story py-24 lg:py-36 border-b border-border/50" data-reveal>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-16 items-center">
+          <div class="lg:col-span-6 order-2 lg:order-1">
+            <div class="stamp-card relative p-10 lg:p-16 rounded-[40px] border border-border bg-surface shadow-xl">
+              <div class="absolute top-6 right-6 w-16 h-16 rounded-full bg-saffron/10 border border-saffron/20 flex items-center justify-center">
+                <i data-lucide="flame" class="w-8 h-8 text-saffron"></i>
+              </div>
+              <h2 class="font-display font-black text-[clamp(2rem,5vw,3rem)] leading-none text-offwhite mb-6">Bir·ya·ni</h2>
+              <p class="text-saffron text-[10px] font-bold uppercase tracking-widest mb-4">/bɪrˈjɑː.ni/ · noun, Urdu</p>
+              <p class="text-muted text-lg leading-relaxed mb-6">
+                A pot of rice that has been lied to about how long it takes. Layered with marinated meat, saffron milk and onions fried until they stopped arguing, sealed with dough, then <mark class="bg-saffron/20 text-saffron">left completely alone over a low flame</mark> until the whole gali can smell it.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <mark class="bg-surface/30 border border-border px-3 py-1 rounded-full text-xs font-bold text-offwhite">Dawat</mark>
+                <mark class="bg-surface/30 border border-border px-3 py-1 rounded-full text-xs font-bold text-offwhite">Khushiyan</mark>
+                <mark class="bg-surface/30 border border-border px-3 py-1 rounded-full text-xs font-bold text-offwhite">Bohot zyada</mark>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-6 order-1 lg:order-2">
+            <div class="sketch-wrapper relative h-[400px] flex items-center justify-center">
+              <svg class="w-full max-w-[400px] h-auto" viewBox="0 0 200 170" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+                <path d="M32 78C32 40 62 26 100 26s68 14 68 52"/>
+                <ellipse cx="100" cy="80" rx="70" ry="11"/>
+                <path d="M38 86c0 38 24 60 62 60s62-22 62-60"/>
+                <path d="M58 106c12 12 28 18 42 18s30-6 42-18" opacity=".5"/>
+                <circle cx="100" cy="20" r="6"/>
+                <path d="M84 8c-5-7 5-11 0-18M116 8c-5-7 5-11 0-18" opacity=".45"/>
+              </svg>
+              <div class="absolute -inset-1 rounded-[40px] border border-saffron/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+            <p class="mt-8 text-center text-xs font-bold uppercase tracking-wider text-muted">Not a pulao. Don't do that. We will know.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= BUILD / DUM PUKHT ======================= -->
+    <section id="build" class="s-build py-24 lg:py-40 border-b border-border/50 overflow-hidden" data-reveal>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-16 items-start">
+          <div class="lg:col-span-4 lg:sticky lg:top-24">
+            <div class="build-intro space-y-6">
+              <p class="text-saffron text-xs font-bold uppercase tracking-widest"><span class="sec-tag">02</span> Dum pukht · the method</p>
+              <h2 class="font-display font-black text-[clamp(2rem,5vw,3rem)] leading-none text-offwhite">Ek deg,<br><span class="serif-i">itna simple.</span></h2>
+              <p class="text-muted text-lg leading-relaxed">Five things happen. None of them fast.</p>
+              <div class="pt-6 border-t border-border/50">
+                <p class="text-xs font-bold uppercase tracking-wider text-muted mb-2">Step <span id="buildCount">01</span> <span class="text-muted font-normal">/ 05</span></p>
+                <div class="h-1 bg-border/30 w-full rounded-full overflow-hidden">
+                  <div id="buildProgress" class="h-full bg-saffron w-[20%] transition-all duration-700"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-8">
+            <div class="build-steps relative min-h-[400px]">
+              <div class="step-content">
+                <div class="step-item active" data-step="1">
+                  <div class="flex items-start gap-4 mb-6">
+                    <span class="step-num w-10 h-10 rounded-full bg-saffron text-ink flex items-center justify-center font-bold text-lg shrink-0">01</span>
+                    <div>
+                      <h3 class="font-bold text-lg text-offwhite">Chawal</h3>
+                      <p class="text-sm text-muted mt-1">Basmati, soaked 40 minutes. Not 20. Layered half-cooked, never fully.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="step-item hidden" data-step="2">
+                  <div class="flex items-start gap-4 mb-6">
+                    <span class="step-num w-10 h-10 rounded-full bg-border flex items-center justify-center font-bold text-lg shrink-0 text-muted">02</span>
+                    <div>
+                      <h3 class="font-bold text-lg text-offwhite">Marinade</h3>
+                      <p class="text-sm text-muted mt-1">Dahi, raw papaya, Kashmiri mirch, a spoon of mustard oil. Overnight.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="step-item hidden" data-step="3">
+                  <div class="flex items-start gap-4 mb-6">
+                    <span class="step-num w-10 h-10 rounded-full bg-border flex items-center justify-center font-bold text-lg shrink-0 text-muted">03</span>
+                    <div>
+                      <h3 class="font-bold text-lg text-offwhite">Birista</h3>
+                      <p class="text-sm text-muted mt-1">Onions, three hours, low flame, no shortcuts.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="step-item hidden" data-step="4">
+                  <div class="flex items-start gap-4 mb-6">
+                    <span class="step-num w-10 h-10 rounded-full bg-border flex items-center justify-center font-bold text-lg shrink-0 text-muted">04</span>
+                    <div>
+                      <h3 class="font-bold text-lg text-offwhite">Tarkib</h3>
+                      <p class="text-sm text-muted mt-1">Rice over meat. Saffron milk, mint, kewra, ghee. Then the same again.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="step-item hidden" data-step="5">
+                  <div class="flex items-start gap-4 mb-6">
+                    <span class="step-num w-10 h-10 rounded-full bg-border flex items-center justify-center font-bold text-lg shrink-0 text-muted">05</span>
+                    <div>
+                      <h3 class="font-bold text-lg text-offwhite">Dum</h3>
+                      <p class="text-sm text-muted mt-1">Atta seal. 25 minutes on low, no peeking. Then opened in front of you.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="step-visual mt-12 relative">
+                <div id="buildVisual" class="relative h-[300px] flex items-center justify-center">
+                  <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80" 
+                       alt="Hands pressing dough seal onto deg rim" 
+                       class="w-full max-w-xs h-auto rounded-[30px] shadow-2xl opacity-80 grayscale hover:grayscale-0 transition-all duration-500"
+                       loading="lazy">
+                </div>
+                <p class="mt-4 text-center text-xs font-bold uppercase tracking-wider text-muted">The seal goes on · 11:40 AM</p>
               </div>
             </div>
           </div>
@@ -110,422 +344,160 @@
       </div>
     </section>
 
-    <!-- Menu -->
-    <section id="menu-section" class="py-20 lg:py-28 border-b border-border/50">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
-          <div class="space-y-2 max-w-2xl">
-            <p class="text-saffron text-xs font-bold uppercase tracking-widest">The menu</p>
-            <h2 class="font-display font-bold text-[clamp(2rem,5vw,3rem)] leading-none text-offwhite">Choose your dum.</h2>
-            <p class="text-muted text-sm max-w-md">Customizable with portion size, spice heat, and add-ons. Available for express delivery or counter pickup.</p>
-          </div>
-          <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-            <div class="relative w-full sm:w-72">
-              <i data-lucide="search" class="w-4 h-4 text-muted absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-              <input type="text" id="menu-search-input" placeholder="Search dishes…" class="input-editorial w-full pl-10 pr-4 py-2.5 text-sm bg-surface border border-border">
-            </div>
-            <select id="dietary-select" class="input-editorial w-full sm:w-auto text-sm px-4 py-2.5 bg-surface border border-border">
-              <option value="all">All dishes</option>
-              <option value="non-veg">Non-veg only</option>
-              <option value="veg">Veg only</option>
-            </select>
-          </div>
+    <!-- ======================= MENU ======================= -->
+    <section id="menu" class="s-menu py-24 lg:py-36 border-b border-border/50" data-reveal>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <p class="text-vermilion text-xs font-bold uppercase tracking-widest">The menu</p>
+          <h2 class="font-display font-black text-[clamp(2rem,5vw,3rem)] leading-none text-offwhite mb-4">Choose your dum.</h2>
+          <p class="text-muted text-sm max-w-2xl mx-auto">Customizable with portion size, spice heat, and add-ons. Available for express delivery or counter pickup.</p>
         </div>
 
-        <div class="flex items-center gap-2 overflow-x-auto pb-6 mb-10 border-b border-border/30 scrollbar-none">
-          <button class="menu-tab-btn active flex-shrink-0" data-category="all">All</button>
-          <button class="menu-tab-btn flex-shrink-0" data-category="hyderabadi">Hyderabadi</button>
-          <button class="menu-tab-btn flex-shrink-0" data-category="lucknowi">Lucknowi</button>
-          <button class="menu-tab-btn flex-shrink-0" data-category="kolkata">Kolkata</button>
-          <button class="menu-tab-btn flex-shrink-0" data-category="veg">Veg &amp; paneer</button>
-          <button class="menu-tab-btn flex-shrink-0" data-category="sides">Sides</button>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center mb-12">
+          <button class="menu-tab active px-6 py-2.5 rounded-full bg-saffron text-ink text-xs font-bold uppercase tracking-wider">All</button>
+          <button class="menu-tab px-6 py-2.5 rounded-full border border-border text-muted text-xs font-bold uppercase tracking-wider hover:text-saffron hover:border-saffron transition-colors">Hyderabadi</button>
+          <button class="menu-tab px-6 py-2.5 rounded-full border border-border text-muted text-xs font-bold uppercase tracking-wider hover:text-saffron hover:border-saffron transition-colors">Lucknowi</button>
+          <button class="menu-tab px-6 py-2.5 rounded-full border border-border text-muted text-xs font-bold uppercase tracking-wider hover:text-saffron hover:border-saffron transition-colors">Kolkata</button>
+          <button class="menu-tab px-6 py-2.5 rounded-full border border-border text-muted text-xs font-bold uppercase tracking-wider hover:text-saffron hover:border-saffron transition-colors">Veg</button>
+          <button class="menu-tab px-6 py-2.5 rounded-full border border-border text-muted text-xs font-bold uppercase tracking-wider hover:text-saffron hover:border-saffron transition-colors">Sides</button>
         </div>
 
-        <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-        <div id="menu-empty-state" class="hidden text-center py-20 space-y-4">
-          <i data-lucide="utensils-crossed" class="w-10 h-10 text-muted mx-auto"></i>
-          <h3 class="font-bold text-lg text-offwhite">No dishes match your search</h3>
-          <p class="text-muted text-sm">Try searching for "chicken", "mutton", or "paneer".</p>
-          <button onclick="resetMenuFilters()" class="btn-outline text-xs font-bold px-4 py-2">Reset filters</button>
+        <div id="menuGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+      </div>
+    </section>
+
+    <!-- ======================= GALLERY ======================= -->
+    <section id="gallery" class="s-gallery py-24 lg:py-36 border-b border-border/50 overflow-hidden" data-reveal>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <p class="text-vermilion text-xs font-bold uppercase tracking-widest">Eight plates</p>
+          <h2 class="font-display font-black text-[clamp(2rem,5vw,3rem)] leading-none text-offwhite mb-4">One rule.<br><span class="serif-i">No menu on the wall.</span></h2>
+        </div>
+
+        <div class="gallery-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Gallery items injected by JS -->
         </div>
       </div>
     </section>
 
-    <!-- Reservations -->
-    <section id="reservations-section" class="py-20 lg:py-28">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="space-y-4 text-center max-w-xl mx-auto mb-14">
-          <p class="text-vermilion text-xs font-bold uppercase tracking-widest">Book a table</p>
-          <h2 class="font-display font-bold text-[clamp(2rem,5vw,3rem)] leading-none text-offwhite">Reserve your seat.</h2>
-          <p class="text-muted text-sm">We hold tables for 15 minutes past your reservation time. Lunch and dinner seatings daily.</p>
-        </div>
-        <div class="bg-surface/5 border border-border/50 rounded-[30px] p-8 sm:p-12">
-          <form id="reservation-form-inline" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div class="sm:col-span-2">
-              <label class="block text-xs font-bold uppercase tracking-wider text-muted mb-2">Name</label>
-              <input type="text" id="res-name" placeholder="Aditya Sharma" class="input-editorial w-full text-sm py-3 bg-surface border border-border">
-            </div>
-            <div>
-              <label class="block text-xs font-bold uppercase tracking-wider text-muted mb-2">Phone</label>
-              <input type="tel" id="res-phone" placeholder="+91 98860 99000" class="input-editorial w-full text-sm py-3 bg-surface border border-border">
-            </div>
-            <div>
-              <label class="block text-xs font-bold uppercase tracking-wider text-muted mb-2">Date</label>
-              <input type="date" id="res-date" class="input-editorial w-full text-sm py-3 bg-surface border border-border">
-            </div>
-            <div class="sm:col-span-2 lg:col-span-1">
-              <label class="block text-xs font-bold uppercase tracking-wider text-muted mb-2">Time</label>
-              <select id="res-time" class="input-editorial w-full text-sm py-3 bg-surface border border-border">
-                <option>12:00 PM</option><option>1:00 PM</option><option>7:00 PM</option><option>8:30 PM</option><option>9:30 PM</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-xs font-bold uppercase tracking-wider text-muted mb-2">Guests</label>
-              <select id="res-guests" class="input-editorial w-full text-sm py-3 bg-surface border border-border">
-                <option>1</option><option>2</option><option>4</option><option>6</option><option>8+</option>
-              </select>
-            </div>
-            <div class="sm:col-span-2 lg:col-span-1">
-              <label class="block text-xs font-bold uppercase tracking-wider text-muted mb-2">Outlet</label>
-              <select id="res-outlet" class="input-editorial w-full text-sm py-3 bg-surface border border-border">
-                <option>Indiranagar · Bangalore</option><option>Koramangala · Bangalore</option><option>Jubilee Hills · Hyderabad</option><option>Bandra · Mumbai</option>
-              </select>
-            </div>
-            <div class="lg:col-span-4">
-              <label class="block text-xs font-bold uppercase tracking-wider text-muted mb-2">Special requests</label>
-              <textarea id="res-special" rows="2" placeholder="e.g. window seat, anniversary" class="input-editorial w-full text-sm py-3 bg-surface border border-border"></textarea>
-            </div>
-            <div class="lg:col-span-4">
-              <button type="button" onclick="submitReservation()" class="w-full btn-primary py-3 text-sm font-bold">Confirm Reservation</button>
-            </div>
-          </form>
-          <div id="res-confirm" class="hidden mt-8 p-8 rounded-[24px] border border-saffron/20 bg-saffron/5 text-center">
-            <i data-lucide="check-circle" class="w-10 h-10 text-saffron mx-auto mb-3"></i>
-            <p class="font-bold text-lg text-offwhite">Table reserved.</p>
-            <p class="text-muted text-sm">We’ve saved your seat. A confirmation has been sent.</p>
+    <!-- ======================= NAMES ======================= -->
+    <section id="names" class="s-names py-20 border-b border-border/50 overflow-hidden" data-reveal>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-vermilion text-xs font-bold uppercase tracking-widest mb-4">Sixteen names</p>
+        <h2 class="font-display font-black text-[clamp(2rem,5vw,3rem)] leading-none text-offwhite mb-6">Order the one <span class="serif-i text-saffron">with the bone.</span> Trust us.</h2>
+        <p class="text-muted text-sm mb-12">We keep changing the list. Regulars keep changing our minds. Ask what came out of the deg at 8.</p>
+        <div class="names-marquee overflow-hidden h-20 relative">
+          <div class="names-track flex animate-names-marquee gap-6 whitespace-nowrap">
+            <!-- injected by JS -->
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Outlets -->
-    <section id="outlets-section" class="py-20 lg:py-28 border-t border-border/50">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="space-y-4 text-center mb-14">
-          <p class="text-vermilion text-xs font-bold uppercase tracking-widest">Visit us</p>
-          <h2 class="font-display font-bold text-[clamp(2rem,5vw,3rem)] leading-none text-offwhite">Our kitchens.</h2>
-          <p class="text-muted text-sm">Walk in, order at the counter, or book ahead.</p>
-        </div>
-
-        <div class="space-y-8">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="border border-border/50 rounded-[24px] p-6 bg-surface/5">
-              <h3 class="font-bold text-lg text-offwhite mb-1">Indiranagar · Bangalore</h3>
-              <p class="text-muted text-sm mb-4">#402, Royal Residency, 100 Feet Road, Indiranagar, Bangalore 560038</p>
-              <p class="text-xs text-muted mb-4">11:00 AM – 11:00 PM</p>
-              <button onclick="selectOutlet('indiranagar')" class="w-full btn-outline py-2 text-xs font-bold">Select outlet</button>
-            </div>
-            <div class="border border-border/50 rounded-[24px] p-6 bg-surface/5">
-              <h3 class="font-bold text-lg text-offwhite mb-1">Koramangala · Bangalore</h3>
-              <p class="text-muted text-sm mb-4">#15, Block 5, Koramangala 4th Block, Bangalore 560034</p>
-              <p class="text-xs text-muted mb-4">11:00 AM – 11:00 PM</p>
-              <button onclick="selectOutlet('koramangala')" class="w-full btn-outline py-2 text-xs font-bold">Select outlet</button>
-            </div>
-            <div class="border border-border/50 rounded-[24px] p-6 bg-surface/5">
-              <h3 class="font-bold text-lg text-offwhite mb-1">Bandra · Mumbai</h3>
-              <p class="text-muted text-sm mb-4">Linking Road, Bandra West, Mumbai 400050</p>
-              <p class="text-xs text-muted mb-4">12:00 PM – 11:30 PM</p>
-              <button onclick="selectOutlet('bandra')" class="w-full btn-outline py-2 text-xs font-bold">Select outlet</button>
+    <!-- ======================= HOURS / VISIT ======================= -->
+    <section id="visit" class="s-visit py-24 lg:py-36 border-b border-border/50" data-reveal>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-16 items-start">
+          <div class="lg:col-span-6">
+            <div class="visit-card p-10 lg:p-16 rounded-[40px] border border-border bg-surface shadow-xl">
+              <p class="text-vermilion text-xs font-bold uppercase tracking-widest mb-4">Yahan aaye · Find us</p>
+              <h2 class="font-display font-black text-[clamp(2rem,5vw,2.5rem)] leading-none text-offwhite mb-6">Nizamuddin,<br><span class="serif-i text-saffron">basti side.</span></h2>
+              <address class="text-muted text-sm leading-relaxed mb-8">
+                <b>DUM — Biryani &amp; Bar</b><br>
+                189/A, Gali Qasim Jaan,<br>
+                Nizamuddin Basti, New Delhi 110013<br>
+                <span class="text-xs text-muted/60 block mt-2">West gate of Humayun's Tomb. Follow the smell, then the crowd.</span>
+              </address>
+              <div class="space-y-4">
+                <a href="https://www.google.com/maps/search/?api=1&query=Nizamuddin+Basti+New+Delhi" target="_blank" class="btn-outline w-full py-3 text-sm font-bold">Directions</a>
+                <a href="tel:+911141027788" class="btn-outline w-full py-3 text-sm font-bold">011 4102 7788</a>
+                <a href="#" class="btn-outline w-full py-3 text-sm font-bold">@dum.delhi</a>
+              </div>
             </div>
           </div>
-
-          <div class="mt-8 pt-8 border-t border-border/30 text-center">
-            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-ink text-offwhite mb-4">
-              <i data-lucide="smartphone" class="w-4 h-4"></i>
-              <span class="font-bold">WhatsApp order</span>
-              <span class="text-xs text-offwhite/60">+91 98860 99000</span>
+          <div class="lg:col-span-6">
+            <div class="map-wrapper relative h-[500px] rounded-[40px] overflow-hidden border border-border bg-surface/30 shadow-xl">
+              <svg class="w-full h-full" viewBox="0 0 640 520" aria-label="Hand-drawn map of Nizamuddin, Delhi">
+                <rect width="640" height="520" fill="#E7DAB6"/>
+                <path d="M352 24h250v180c-86 8-168 2-250-16Z" fill="#C6DBB2" opacity="0.85"/>
+                <path d="M-20 520 620 20" stroke="#FCF5E3" stroke-width="38" stroke-linecap="round"/>
+                <text x="452" y="150" font-family="Archivo, sans-serif" font-size="12" letter-spacing="2" fill="#9C8F72" transform="rotate(-38 452 150)">MATHURA ROAD</text>
+                <text x="40" y="430" font-family="Archivo, sans-serif" font-size="12" letter-spacing="2" fill="#9C8F72">LODHI ROAD</text>
+                <rect x="40" y="200" width="150" height="120" rx="4" fill="#E2D5B4" stroke="#C8B893" stroke-width="1.4"/>
+                <g transform="translate(232 336)">
+                  <rect x="-16" y="-6" width="32" height="16" fill="#EFE9D6" stroke="#B9A882" stroke-width="1.4"/>
+                  <path d="M-16-6c0-12 8-20 16-20s16 8 16 20Z" fill="#EFE9D6" stroke="#B9A882" stroke-width="1.4"/>
+                </g>
+                <circle cx="180" cy="180" r="12" fill="#C03A17"/>
+                <text x="180" y="185" text-anchor="middle" font-family="sans-serif" font-size="8" fill="white">DUM</text>
+              </svg>
+              <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+                <div class="text-left">
+                  <p class="text-xs font-bold text-muted uppercase tracking-wider">You are here</p>
+                  <p class="text-sm font-bold text-offwhite">Gali Qasim Jaan</p>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-saffron text-ink flex items-center justify-center shadow-lg">
+                  <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </div>
+              </div>
+              <p class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-[10px] text-muted uppercase tracking-wider">Drawn by hand in the basti · not to scale</p>
             </div>
-            <a href="https://wa.me/919886099000" target="_blank" class="w-full btn-primary py-3 text-sm font-black">Order via WhatsApp</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-border/50 bg-ink">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div class="col-span-1 md:col-span-1">
-            <div class="flex items-center gap-2 mb-4">
-              <i data-lucide="utensils" class="w-5 h-5 text-vermilion"></i>
-              <span class="font-display font-black text-lg tracking-tight text-offwhite">BRO <span class="text-saffron">BIRYANI</span></span>
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="s-end py-16 border-t border-border/50 bg-deep">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-16 items-center mb-12">
+          <div class="lg:col-span-6">
+            <svg class="w-32 h-auto mb-6" viewBox="0 0 120 48" aria-hidden="true">
+              <text x="2" y="34" font-family="Archivo, Arial Black, sans-serif" font-weight="800" font-size="26" letter-spacing="-1" fill="currentColor">DUM</text>
+              <circle cx="92" cy="16" r="3" fill="#E8A013"/>
+            </svg>
+            <p class="text-muted text-sm leading-relaxed">Slow-cooked dum pukht biryani, sealed with dough and opened at your table. Gali Qasim Jaan, Nizamuddin Basti, Delhi.</p>
+          </div>
+          <div class="lg:col-span-6 text-right lg:text-left">
+            <nav class="space-y-3 text-sm">
+              <a href="#menu" class="text-offwhite/60 hover:text-saffron transition-colors">Menu</a>
+              <a href="#story" class="text-offwhite/60 hover:text-saffron transition-colors">The Dum</a>
+              <a href="#gallery" class="text-offwhite/60 hover:text-saffron transition-colors">Plates</a>
+              <a href="#visit" class="text-offwhite/60 hover:text-saffron transition-colors">Visit</a>
+            </nav>
+            <div class="mt-8 flex gap-4 text-xs text-muted/60">
+              <span>Delhi · since 2016</span>
+              <span>No delivery · the deg does not travel</span>
             </div>
-            <p class="text-muted text-sm leading-relaxed">Slow-cooked dum biryani. Hyderabadi, Lucknowi, Kolkata, and shahi paneer. Clay-sealed pots, 3.5-hour dum.</p>
-          </div>
-          <div>
-            <h4 class="font-bold text-sm text-offwhite uppercase tracking-wider mb-4">Menu</h4>
-            <ul class="space-y-3 text-sm text-offwhite/60">
-              <li><a href="#menu-section" class="hover:text-saffron transition-colors">Hyderabadi chicken dum</a></li>
-              <li><a href="#menu-section" class="hover:text-saffron transition-colors">Lucknowi mutton dum</a></li>
-              <li><a href="#menu-section" class="hover:text-saffron transition-colors">Kolkata aloo special</a></li>
-              <li><a href="#menu-section" class="hover:text-saffron transition-colors">Shahi paneer dum</a></li>
-              <li><a href="#menu-section" class="hover:text-saffron transition-colors">Burani garlic raita</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-bold text-sm text-offwhite uppercase tracking-wider mb-4">Platform</h4>
-            <ul class="space-y-3 text-sm text-offwhite/60">
-              <li><a href="#reservations-section" class="hover:text-saffron transition-colors">Table reservations</a></li>
-              <li><a href="#" onclick="openTrackOrderModal(); return false;" class="hover:text-saffron transition-colors">Order tracking</a></li>
-              <li><a href="#" onclick="openAuthModal(); return false;" class="hover:text-saffron transition-colors">Account &amp; history</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-bold text-sm text-offwhite uppercase tracking-wider mb-4">Standards</h4>
-            <ul class="space-y-3 text-xs text-offwhite/40">
-              <li>FSSAI Lic. #11224333000542</li>
-              <li>100% halal-certified meats</li>
-              <li>Zero artificial colors</li>
-            </ul>
           </div>
         </div>
-        <div class="pt-8 border-t border-border/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-offwhite/40">
-          <p>&copy; 2026 Bro Biryani.</p>
-          <div class="flex items-center gap-6">
-            <a href="#" class="hover:text-offwhite transition-colors">Privacy</a>
-            <a href="#" class="hover:text-offwhite transition-colors">Terms</a>
+        <div class="pt-8 border-t border-border/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted/50">
+          <p>&copy; 2026 DUM · Biryani &amp; Bar, Nizamuddin, Delhi.</p>
+          <div class="flex gap-6">
+            <a href="#" class="hover:text-offwhite transition-colors">Instagram</a>
+            <a href="#" class="hover:text-offwhite transition-colors">Directions</a>
+            <a href="#" class="hover:text-offwhite transition-colors">011 4102 7788</a>
           </div>
         </div>
       </div>
     </footer>
 
-    <!-- Cart drawer -->
-    <div id="cart-overlay" class="fixed inset-0 bg-ink/80 backdrop-blur hidden z-40 flex items-center justify-center" onclick="toggleCart(false)"></div>
-    <div id="cart-drawer" class="fixed inset-y-0 right-0 w-full sm:w-96 bg-surface border-l border-border shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col h-full">
-      <div class="p-6 border-b border-border flex items-center justify-between">
-        <h3 class="font-display font-bold text-lg text-offwhite">Your cart</h3>
-        <button onclick="toggleCart(false)" class="text-muted hover:text-offwhite"><i data-lucide="x" class="w-5 h-5"></i></button>
-      </div>
-      <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-5">
-        <div class="text-center py-12 text-muted text-sm">Your cart is empty.<br class="hidden sm:block">Start your feast from the menu.</div>
-      </div>
-      <div class="p-6 border-t border-border bg-ink/5">
-        <div class="space-y-4 mb-6">
-          <div class="flex items-center justify-between text-sm"><span class="text-muted">Subtotal</span><span id="cart-subtotal" class="font-bold text-offwhite">₹0</span></div>
-          <div class="flex items-center justify-between text-sm"><span class="text-muted">Tax (5%)</span><span id="cart-tax" class="text-muted">₹0</span></div>
-          <div class="flex items-center justify-between text-sm"><span class="text-muted">Delivery</span><span id="cart-delivery" class="text-muted">₹39</span></div>
-          <div class="flex items-center justify-between text-xs font-bold text-offwhite border-t border-border pt-3"><span>Grand total</span><span id="cart-grand-total" class="text-saffron">₹0</span></div>
-        </div>
-        <div class="space-y-3">
-          <div class="relative"><input type="text" id="promo-input" placeholder="Promo code (e.g. BRO15)" class="input-editorial w-full text-sm py-2.5 pl-10 bg-surface border border-border"><i data-lucide="tag" class="w-4 h-4 text-muted absolute left-3 top-1/2 -translate-y-1/2"></i></div>
-          <button id="apply-promo-btn" class="w-full btn-outline py-2 text-xs font-bold">Apply</button>
-          <div id="promo-status" class="text-[11px] font-bold text-center"></div>
-        </div>
-        <div class="space-y-3">
-          <button id="whatsapp-checkout-btn" class="w-full btn-primary py-3 text-sm font-black"><i data-lucide="send" class="w-4 h-4"></i><span>Order via WhatsApp</span></button>
-          <button id="express-checkout-btn" class="w-full btn-outline py-3 text-sm font-bold">Express checkout</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modals -->
-    <div id="dish-customizer-modal" class="fixed inset-0 bg-ink/80 backdrop-blur hidden z-50 flex items-center justify-center p-4">
-      <div class="bg-surface border border-border rounded-[30px] max-w-lg w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl">
-        <div class="relative h-48 w-full overflow-hidden bg-surface/5 shrink-0">
-          <img id="cust-modal-img" src="" alt="Dish preview" class="w-full h-full object-cover">
-          <button onclick="closeCustomizer()" class="absolute top-4 right-4 p-2 rounded-full bg-ink text-offwhite hover:bg-saffron transition-colors"><i data-lucide="x" class="w-5 h-5"></i></button>
-          <div class="absolute bottom-3 left-5 right-5">
-            <div class="flex items-center gap-2 mb-2">
-              <span id="cust-modal-veg" class="text-[10px] font-bold px-2 py-0.5 rounded-full"></span>
-              <span id="cust-modal-spice" class="text-xs text-muted"></span>
-            </div>
-            <h3 id="cust-modal-title" class="font-display font-bold text-lg text-offwhite"></h3>
-          </div>
-        </div>
-        <div class="p-6 overflow-y-auto space-y-6 text-sm text-offwhite/80">
-          <p id="cust-modal-desc" class="leading-relaxed"></p>
-          <div class="space-y-3">
-            <span class="block text-xs font-bold uppercase tracking-wider text-muted">Portion size</span>
-            <div class="grid grid-cols-2 gap-3" id="cust-size-options">
-              <label class="cursor-pointer border border-border rounded-[14px] p-3 flex items-center justify-between hover:border-saffron transition-colors">
-                <div class="flex items-center gap-2"><input type="radio" name="cust-size" value="regular" checked class="accent-saffron"><span class="font-bold text-offwhite">Regular</span></div>
-                <span class="text-saffron font-bold">Included</span>
-              </label>
-              <label class="cursor-pointer border border-border rounded-[14px] p-3 flex items-center justify-between hover:border-saffron transition-colors">
-                <div class="flex items-center gap-2"><input type="radio" name="cust-size" value="jumbo" class="accent-saffron"><span class="font-bold text-offwhite">Jumbo pack</span></div>
-                <span class="text-saffron font-bold">+₹220</span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="p-6 border-t border-border bg-ink/5">
-          <button onclick="document.getElementById('cust-add-to-cart-btn')?.click()" class="w-full btn-primary py-3 text-sm font-black">Add to cart</button>
-        </div>
-      </div>
-    </div>
-
-    <div id="order-tracking-modal" class="fixed inset-0 bg-ink/80 backdrop-blur hidden z-50 flex items-center justify-center p-4">
-      <div class="bg-surface border border-border rounded-[30px] max-w-md w-full p-8 shadow-2xl">
-        <button onclick="closeTrackOrderModal()" class="absolute top-5 right-5 text-muted hover:text-offwhite"><i data-lucide="x" class="w-5 h-5"></i></button>
-        <div class="text-center mb-8">
-          <div class="w-14 h-14 rounded-full bg-saffron/10 text-saffron flex items-center justify-center mx-auto text-2xl border border-saffron/20"><i data-lucide="truck" class="w-6 h-6"></i></div>
-          <h3 class="font-display font-bold text-lg text-offwhite mt-4">Order on the way</h3>
-          <p class="text-muted text-sm mt-1">Your dum feast is being prepared.</p>
-        </div>
-        <div class="space-y-6" id="order-pipeline"></div>
-        <div class="mt-8 flex items-center justify-between">
-          <button onclick="advanceOrderStatusMock()" class="btn-outline px-5 py-2 text-xs font-bold">Next step</button>
-          <button onclick="closeTrackOrderModal()" class="btn-primary px-6 py-2 text-xs font-bold">Done</button>
-        </div>
-      </div>
-    </div>
-
-    <div id="auth-profile-modal" class="fixed inset-0 bg-ink/80 backdrop-blur hidden z-50 flex items-center justify-center p-4">
-      <div class="bg-surface border border-border rounded-[30px] max-w-md w-full p-8 shadow-2xl">
-        <button onclick="closeAuthModal()" class="absolute top-5 right-5 text-muted hover:text-offwhite"><i data-lucide="x" class="w-5 h-5"></i></button>
-        <div class="space-y-3 text-center">
-          <div class="w-14 h-14 rounded-full bg-vermilion/10 text-vermilion flex items-center justify-center mx-auto text-2xl border border-vermilion/20"><i data-lucide="user" class="w-6 h-6"></i></div>
-          <h3 class="font-display font-bold text-lg text-offwhite" id="auth-modal-title">Account</h3>
-          <p class="text-muted text-xs">Save addresses, view order history.</p>
-        </div>
-        <div id="profile-view" class="space-y-5 text-xs text-offwhite/80">
-          <div class="bg-white/5 p-4 rounded-[16px] border border-border/50 space-y-3">
-            <div class="flex items-center justify-between">
-              <div>
-                <p class="font-bold text-sm text-offwhite" id="user-display-name">Aditya Sharma</p>
-                <p class="text-[11px] text-muted" id="user-display-email">aditya@example.com</p>
-              </div>
-            </div>
-            <div class="pt-3 border-t border-border/30 text-xs"><span class="text-muted">Address: </span><span class="font-medium text-offwhite" id="user-display-address">#402, Royal Residency, Indiranagar</span></div>
-          </div>
-          <div class="space-y-2"><span class="block text-xs font-bold uppercase tracking-wider text-muted">Recent orders</span><div class="space-y-2" id="order-history-list"></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cart drawer -->
-    <div id="cart-overlay" class="fixed inset-0 bg-ink/80 backdrop-blur hidden z-40 flex items-center justify-center" onclick="toggleCart(false)"></div>
-    <div id="cart-drawer" class="fixed inset-y-0 right-0 w-full sm:w-96 bg-surface border-l border-border shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col h-full">
-      <div class="p-6 border-b border-border flex items-center justify-between">
-        <h3 class="font-display font-bold text-lg text-offwhite">Your cart</h3>
-        <button onclick="toggleCart(false)" class="text-muted hover:text-offwhite"><i data-lucide="x" class="w-5 h-5"></i></button>
-      </div>
-      <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-5">
-        <div class="text-center py-12 text-muted text-sm">Your cart is empty.<br class="hidden sm:block">Start your feast from the menu.</div>
-      </div>
-      <div class="p-6 border-t border-border bg-ink/5">
-        <div class="space-y-4 mb-6">
-          <div class="flex items-center justify-between text-sm"><span class="text-muted">Subtotal</span><span id="cart-subtotal" class="font-bold text-offwhite">₹0</span></div>
-          <div class="flex items-center justify-between text-sm"><span class="text-muted">Tax (5%)</span><span id="cart-tax" class="text-muted">₹0</span></div>
-          <div class="flex items-center justify-between text-sm"><span class="text-muted">Delivery</span><span id="cart-delivery" class="text-muted">₹39</span></div>
-          <div class="flex items-center justify-between text-xs font-bold text-offwhite border-t border-border pt-3"><span>Grand total</span><span id="cart-grand-total" class="text-saffron">₹0</span></div>
-        </div>
-        <div class="space-y-3">
-          <div class="relative"><input type="text" id="promo-input" placeholder="Promo code (e.g. BRO15)" class="input-editorial w-full text-sm py-2.5 pl-10 bg-surface border border-border"><i data-lucide="tag" class="w-4 h-4 text-muted absolute left-3 top-1/2 -translate-y-1/2"></i></div>
-          <button id="apply-promo-btn" class="w-full btn-outline py-2 text-xs font-bold">Apply</button>
-          <div id="promo-status" class="text-[11px] font-bold text-center"></div>
-        </div>
-        <div class="space-y-3">
-          <button id="whatsapp-checkout-btn" class="w-full btn-primary py-3 text-sm font-black"><i data-lucide="send" class="w-4 h-4"></i><span>Order via WhatsApp</span></button>
-          <button id="express-checkout-btn" class="w-full btn-outline py-3 text-sm font-bold">Express checkout</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modals -->
-    <div id="dish-customizer-modal" class="fixed inset-0 bg-ink/80 backdrop-blur hidden z-50 flex items-center justify-center p-4">
-      <div class="bg-surface border border-border rounded-[30px] max-w-lg w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl">
-        <div class="relative h-48 w-full overflow-hidden bg-surface/5 shrink-0">
-          <img id="cust-modal-img" src="" alt="Dish preview" class="w-full h-full object-cover">
-          <button onclick="closeCustomizer()" class="absolute top-4 right-4 p-2 rounded-full bg-ink text-offwhite hover:bg-saffron transition-colors"><i data-lucide="x" class="w-5 h-5"></i></button>
-          <div class="absolute bottom-3 left-5 right-5">
-            <div class="flex items-center gap-2 mb-2">
-              <span id="cust-modal-veg" class="text-[10px] font-bold px-2 py-0.5 rounded-full"></span>
-              <span id="cust-modal-spice" class="text-xs text-muted"></span>
-            </div>
-            <h3 id="cust-modal-title" class="font-display font-bold text-lg text-offwhite"></h3>
-          </div>
-        </div>
-        <div class="p-6 overflow-y-auto space-y-6 text-sm text-offwhite/80">
-          <p id="cust-modal-desc" class="leading-relaxed"></p>
-          <div class="space-y-3">
-            <span class="block text-xs font-bold uppercase tracking-wider text-muted">Portion size</span>
-            <div class="grid grid-cols-2 gap-3" id="cust-size-options">
-              <label class="cursor-pointer border border-border rounded-[14px] p-3 flex items-center justify-between hover:border-saffron transition-colors">
-                <div class="flex items-center gap-2"><input type="radio" name="cust-size" value="regular" checked class="accent-saffron"><span class="font-bold text-offwhite">Regular</span></div>
-                <span class="text-saffron font-bold">Included</span>
-              </label>
-              <label class="cursor-pointer border border-border rounded-[14px] p-3 flex items-center justify-between hover:border-saffron transition-colors">
-                <div class="flex items-center gap-2"><input type="radio" name="cust-size" value="jumbo" class="accent-saffron"><span class="font-bold text-offwhite">Jumbo pack</span></div>
-                <span class="text-saffron font-bold">+₹220</span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="p-6 border-t border-border bg-ink/5">
-          <button id="cust-add-to-cart-btn" class="w-full btn-primary py-3 text-sm font-black">Add to cart</button>
-        </div>
-      </div>
-    </div>
-
-    <div id="order-tracking-modal" class="fixed inset-0 bg-ink/80 backdrop-blur hidden z-50 flex items-center justify-center p-4">
-      <div class="bg-surface border border-border rounded-[30px] max-w-md w-full p-8 shadow-2xl">
-        <button onclick="closeTrackOrderModal()" class="absolute top-5 right-5 text-muted hover:text-offwhite"><i data-lucide="x" class="w-5 h-5"></i></button>
-        <div class="text-center mb-8">
-          <div class="w-14 h-14 rounded-full bg-saffron/10 text-saffron flex items-center justify-center mx-auto text-2xl border border-saffron/20"><i data-lucide="truck" class="w-6 h-6"></i></div>
-          <h3 class="font-display font-bold text-lg text-offwhite mt-4">Order on the way</h3>
-          <p class="text-muted text-sm mt-1">Your dum feast is being prepared.</p>
-        </div>
-        <div class="space-y-6" id="order-pipeline"></div>
-        <div class="mt-8 flex items-center justify-between">
-          <button onclick="advanceOrderStatusMock()" class="btn-outline px-5 py-2 text-xs font-bold">Next step</button>
-          <button onclick="closeTrackOrderModal()" class="btn-primary px-6 py-2 text-xs font-bold">Done</button>
-        </div>
-      </div>
-    </div>
-
-    <div id="auth-profile-modal" class="fixed inset-0 bg-ink/80 backdrop-blur hidden z-50 flex items-center justify-center p-4">
-      <div class="bg-surface border border-border rounded-[30px] max-w-md w-full p-8 shadow-2xl">
-        <button onclick="closeAuthModal()" class="absolute top-5 right-5 text-muted hover:text-offwhite"><i data-lucide="x" class="w-5 h-5"></i></button>
-        <div class="space-y-3 text-center">
-          <div class="w-14 h-14 rounded-full bg-vermilion/10 text-vermilion flex items-center justify-center mx-auto text-2xl border border-vermilion/20"><i data-lucide="user" class="w-6 h-6"></i></div>
-          <h3 class="font-display font-bold text-lg text-offwhite" id="auth-modal-title">Account</h3>
-          <p class="text-muted text-xs">Save addresses, view order history.</p>
-        </div>
-        <div id="profile-view" class="space-y-5 text-xs text-offwhite/80">
-          <div class="bg-surface/30 p-4 rounded-[16px] border border-border/50 space-y-3">
-            <div class="flex items-center justify-between">
-              <div>
-                <p class="font-bold text-sm text-offwhite" id="user-display-name">Aditya Sharma</p>
-                <p class="text-[11px] text-muted" id="user-display-email">aditya@example.com</p>
-              </div>
-            </div>
-            <div class="pt-3 border-t border-border/30 text-xs"><span class="text-muted">Address: </span><span class="font-medium text-offwhite" id="user-display-address">#402, Royal Residency, Indiranagar</span></div>
-          </div>
-          <div class="space-y-2"><span class="block text-xs font-bold uppercase tracking-wider text-muted">Recent orders</span><div class="space-y-2" id="order-history-list"></div></div>
-        </div>
-      </div>
-    </div>
-
-    <div id="checkout-modal" class="fixed inset-0 bg-ink/80 backdrop-blur hidden z-50 flex items-center justify-center p-4">
-      <div class="bg-surface border border-border rounded-[30px] max-w-md w-full p-8 shadow-2xl relative">
-        <button onclick="closeCheckoutModal()" class="absolute top-5 right-5 text-muted hover:text-offwhite"><i data-lucide="x" class="w-5 h-5"></i></button>
-        <div class="text-center">
-          <div class="w-16 h-16 rounded-full bg-saffron/10 text-saffron flex items-center justify-center mx-auto text-3xl mb-4 border border-saffron/20"><i data-lucide="receipt" class="w-8 h-8"></i></div>
-          <h3 class="font-display font-bold text-lg text-offwhite mb-2">Checkout</h3>
-          <p class="text-muted text-sm mb-6">Review your order and complete payment.</p>
-          <div class="space-y-3 text-sm mb-6">
-            <div class="flex items-center justify-between"><span class="text-muted">Subtotal</span><span id="confirmed-amount" class="font-bold text-offwhite">₹0</span></div>
-            <div class="flex items-center justify-between"><span class="text-muted">Order ID</span><span id="confirmed-order-id" class="font-mono text-saffron">#BRO-0000</span></div>
-            <div class="flex items-center justify-between"><span class="text-muted">Outlet</span><span id="confirmed-outlet" class="text-offwhite">—</span></div>
-            <div class="flex items-center justify-between"><span class="text-muted">Type</span><span id="confirmed-type" class="text-offwhite">—</span></div>
-          </div>
-          <button onclick="closeCheckoutModal()" class="w-full btn-primary py-3 text-sm font-black">Close</button>
-        </div>
-      </div>
-    </div>
-
-    <script src="app.js"></script>
   </main>
+
+  <!-- 3D Biryani Experience Modal -->
+  <div id="biryani3d" class="fixed inset-0 z-[10000] hidden bg-ink/95 backdrop-blur-sm flex items-center justify-center p-6">
+    <div class="relative w-full max-w-2xl h-[600px] bg-surface border border-border rounded-[40px] shadow-2xl overflow-hidden">
+      <button id="close3D" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-ink text-offwhite flex items-center justify-center hover:bg-saffron hover:text-ink transition-all z-20">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div id="canvas3d" class="w-full h-full"></div>
+      <div class="absolute bottom-6 left-0 right-0 flex flex-col items-center gap-2 z-10">
+        <p class="text-offwhite text-sm font-bold uppercase tracking-wider">Interactive 3D biryani</p>
+        <p class="text-muted text-[10px]">Drag to rotate · click to unseal</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
