@@ -12,7 +12,7 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=1200&q=80">
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><text y=%2226%22 font-size=%2226%22>🍲</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23C8861E'/%3E%3Cpath d='M12 12l4 4 8-8' stroke='%23FFFFFF' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,7 @@
 <body class="font-sans antialiased overflow-x-hidden relative">
 
   <div class="bg-vermilion text-white py-2 px-4 text-center text-xs sm:text-sm font-semibold tracking-wider flex items-center justify-center gap-2 relative z-50 border-b border-warm">
-    <span class="inline-block animate-pulse">🔥</span>
+    <i data-lucide="flame" class="w-3.5 h-3.5 animate-pulse"></i>
     <span>CODE <strong>BRO15</strong>: GET 15% OFF YOUR DUM FEAST + FREE BURANI RAITA & SALAN</span>
     <button id="copy-promo-banner" class="ml-2 bg-charcoal text-white px-3 py-0.5 rounded-full text-xs transition border border-white/30">Copy Code</button>
   </div>
@@ -35,7 +35,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
       <a href="#hero" class="flex items-center gap-3 group">
         <div class="relative w-10 h-10 rounded-full bg-gradient-to-br from-vermilion to-saffron flex items-center justify-center shadow-md shadow-vermilion/25 group-hover:scale-105 transition-transform">
-          <span class="text-2xl">🍲</span>
+          <i data-lucide="utensils" class="w-5 h-5 text-white"></i>
         </div>
         <div>
           <span class="font-display font-black text-2xl tracking-tight text-ink flex items-center gap-1.5">BRO <span class="text-saffron">BIRYANI</span></span>
@@ -86,10 +86,12 @@
             <a href="#menu-section" class="btn-pill btn-primary px-7 py-3 text-sm font-black"><i data-lucide="utensils" class="w-4 h-4"></i><span>Order Online Now</span></a>
             <button onclick="openReservationModal()" class="btn-pill btn-saffron px-7 py-3 text-sm font-bold"><i data-lucide="calendar" class="w-4 h-4"></i><span>Book a Table</span></button>
           </div>
-          <div class="pt-6 grid grid-cols-3 gap-3 border-t border-warm max-w-xs">
-            <div class="flex items-center gap-2.5"><div class="w-8 h-8 rounded-xl border border-warm flex items-center justify-center text-saffron shrink-0"><i data-lucide="award" class="w-5 h-5"></i></div><div class="text-left"><p class="text-xs font-bold text-ink">100% Authentic</p><p class="text-[11px] text-muted">Clay Dum Slow Cooked</p></div></div>
-            <div class="flex items-center gap-2.5"><div class="w-8 h-8 rounded-xl border border-warm flex items-center justify-center text-vermilion shrink-0"><i data-lucide="zap" class="w-5 h-5"></i></div><div class="text-left"><p class="text-xs font-bold text-ink">30-Min Express</p><p class="text-[11px] text-muted">Piping Hot Delivery</p></div></div>
-            <div class="flex items-center gap-2.5"><div class="w-8 h-8 rounded-xl border border-warm flex items-center justify-center text-saffron shrink-0"><i data-lucide="star" class="w-5 h-5 fill-saffron"></i></div><div class="text-left"><p class="text-xs font-bold text-ink">4.9 ★ Rating</p><p class="text-[11px] text-muted">14,200+ Bro Reviews</p></div></div>
+          <div class="pt-6 flex items-center gap-4 text-xs text-muted border-t border-warm pt-4">
+            <span>Clay Dum • Slow Cooked</span>
+            <span>·</span>
+            <span>Express Delivery</span>
+            <span>·</span>
+            <span>Counter Pickup</span>
           </div>
         </div>
         <div class="lg:col-span-5 relative flex justify-center items-center z-10">
@@ -115,7 +117,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative z-10">
           <div class="relative">
             <div id="dough-seal-band" class="w-full aspect-square rounded-[30px] border-2 border-saffron/30 bg-white flex flex-col items-center justify-center p-8 shadow-lg relative overflow-hidden group cursor-pointer" role="button" tabindex="0" aria-label="Crack the dough seal">
-              <div id="dough-seal-label" class="text-2xl font-black text-ink mb-3 transition-opacity">🍲</div>
+              <div id="dough-seal-label" class="text-2xl font-black text-ink mb-3 transition-opacity"><i data-lucide="utensils" class="w-6 h-6"></i></div>
               <div class="text-xs font-bold uppercase tracking-widest text-muted">Tap to crack the dum</div>
               <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-vermilion/10 flex items-center justify-center text-vermilion group-hover:bg-vermilion/20 transition"><i data-lucide="sparkles" class="w-5 h-5"></i></div>
             </div>
@@ -337,28 +339,16 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           <div class="p-6 rounded-[24px] border border-warm bg-white">
-            <div class="flex items-center justify-between mb-3">
-              <div class="flex text-saffron gap-1"><i data-lucide="star" class="w-4 h-4 fill-saffron"></i><i data-lucide="star" class="w-4 h-4 fill-saffron"></i><i data-lucide="star" class="w-4 h-4 fill-saffron"></i><i data-lucide="star" class="w-4 h-4 fill-saffron"></i><i data-lucide="star" class="w-4 h-4 fill-saffron"></i></div>
-              <span class="text-[10px] font-bold text-muted uppercase">Verified Eater</span>
-            </div>
-            <p class="text-sm text-ink-soft italic mb-4">"The saffron aroma hits you the split second you slice the dough seal open. The chicken thighs slid right off the bone. Best Hyderabadi biryani in Bangalore hands down."</p>
-            <div class="flex items-center gap-3 pt-3 border-t border-warm"><div class="w-9 h-9 rounded-full bg-saffron/20 text-saffron font-bold flex items-center justify-center text-sm">AS</div><div><p class="font-bold text-sm text-ink">Aditya Sharma</p><p class="text-[11px] text-muted">Ordered: Hyderabadi Bro Pack</p></div></div>
+            <p class="text-sm text-ink-soft italic mb-4">"The saffron aroma hits the moment you break the dough seal. Chicken fell off the bone. Best biryani I’ve had in Bangalore."</p>
+            <div class="flex items-center gap-3 pt-3 border-t border-warm"><div class="w-9 h-9 rounded-full bg-saffron/20 text-saffron font-bold flex items-center justify-center text-sm">AS</div><div><p class="font-bold text-sm text-ink">Aditya Sharma</p><p class="text-[11px] text-muted">Hyderabadi Chicken Dum</p></div></div>
           </div>
           <div class="p-6 rounded-[24px] border border-warm bg-white">
-            <div class="flex items-center justify-between mb-3">
-              <div class="flex text-saffron gap-1"><i data-lucide="star" class="w-4 h-4 fill-saffron"></i><i data-lucide="star" class="w-4 h-4 fill-saffron"></i><i data-lucide="star" class="w-4 h-4 fill-saffron"></i><i data-lucide="star" class="w-4 h-4 fill-saffron"></i><i data-lucide="star" class="w-4 h-4 fill-saffron"></i></div>
-              <span class="text-[10px] font-bold text-muted uppercase">Verified Eater</span>
-            </div>
-            <p class="text-sm text-ink-soft italic mb-4">"Being from Kolkata, I’m super picky about the biryani aloo. Bro Biryani nailed the velvety melt-in-mouth potato and subtle ghee aroma. Packaging kept it steaming hot!"</p>
-            <div class="flex items-center gap-3 pt-3 border-t border-warm"><div class="w-9 h-9 rounded-full bg-vermilion/20 text-vermilion font-bold flex items-center justify-center text-sm">RM</div><div><p class="font-bold text-sm text-ink">Rahul Mukherjee</p><p class="text-[11px] text-muted">Ordered: Kolkata Bro Special</p></div></div>
+            <p class="text-sm text-ink-soft italic mb-4">"As a Kolkata native I’m picky about the aloo. Bro Biryani got the velvety potato and ghee aroma right. Packaging kept it steaming."</p>
+            <div class="flex items-center gap-3 pt-3 border-t border-warm"><div class="w-9 h-9 rounded-full bg-vermilion/20 text-vermilion font-bold flex items-center justify-center text-sm">RM</div><div><p class="font-bold text-sm text-ink">Rahul Mukherjee</p><p class="text-[11px] text-muted">Kolkata Bro Special</p></div></div>
           </div>
           <div class="p-6 rounded-[24px] border border-warm bg-white">
-            <div class="flex items-center justify-between mb-3">
-              <div class="flex text-saffron gap-1"><i data-lucide="star" class="w-4 h-4 fill-saffron"></i><i data-lucide="star" class="w-4 h-4 fill-saffron"></i><i data-lucide="star" class="w-4 h-4 fill-saffron"></i><i data-lucide="star" class="w-4 h-4 fill-saffron"></i><i data-lucide="star" class="w-4 h-4 fill-saffron"></i></div>
-              <span class="text-[10px] font-bold text-muted uppercase">Verified Eater</span>
-            </div>
-            <p class="text-sm text-ink-soft italic mb-4">"As a vegetarian, most biryanis taste like generic pulao. But Bro Biryani’s Shahi Paneer Dum has actual depth, charcoal dum smokiness, and premium spices. Total convert!"</p>
-            <div class="flex items-center gap-3 pt-3 border-t border-warm"><div class="w-9 h-9 rounded-full bg-amber-500/20 text-amber-500 font-bold flex items-center justify-center text-sm">SK</div><div><p class="font-bold text-sm text-ink">Sneha Kulkarni</p><p class="text-[11px] text-muted">Ordered: Royal Paneer Dum</p></div></div>
+            <p class="text-sm text-ink-soft italic mb-4">"Most veg biryanis taste like pulao. This Shahi Paneer Dum has real depth, charcoal smoke, and proper spices. Total convert."</p>
+            <div class="flex items-center gap-3 pt-3 border-t border-warm"><div class="w-9 h-9 rounded-full bg-amber-500/20 text-amber-500 font-bold flex items-center justify-center text-sm">SK</div><div><p class="font-bold text-sm text-ink">Sneha Kulkarni</p><p class="text-[11px] text-muted">Shahi Paneer Dum</p></div></div>
           </div>
         </div>
       </div>
@@ -376,7 +366,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div class="p-6 rounded-[24px] border border-warm bg-white group hover:border-saffron transition">
             <div class="flex items-center justify-between mb-3">
-              <div class="w-10 h-10 rounded-full bg-saffron/10 text-saffron flex items-center justify-center">📍</div>
+              <div class="w-10 h-10 rounded-full bg-saffron/10 text-saffron flex items-center justify-center"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
               <span class="text-xs font-bold uppercase tracking-wider text-saffron">Flagship</span>
             </div>
             <h3 class="font-display font-bold text-lg text-ink mb-1">Indiranagar · Bangalore</h3>
@@ -390,7 +380,7 @@
           </div>
           <div class="p-6 rounded-[24px] border border-warm bg-white group hover:border-saffron transition">
             <div class="flex items-center justify-between mb-3">
-              <div class="w-10 h-10 rounded-full bg-saffron/10 text-saffron flex items-center justify-center">📍</div>
+              <div class="w-10 h-10 rounded-full bg-saffron/10 text-saffron flex items-center justify-center"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
               <span class="text-xs font-bold uppercase tracking-wider text-saffron">East Side</span>
             </div>
             <h3 class="font-display font-bold text-lg text-ink mb-1">Koramangala · Bangalore</h3>
@@ -404,7 +394,7 @@
           </div>
           <div class="p-6 rounded-[24px] border border-warm bg-white group hover:border-saffron transition">
             <div class="flex items-center justify-between mb-3">
-              <div class="w-10 h-10 rounded-full bg-saffron/10 text-saffron flex items-center justify-center">📍</div>
+              <div class="w-10 h-10 rounded-full bg-saffron/10 text-saffron flex items-center justify-center"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
               <span class="text-xs font-bold uppercase tracking-wider text-saffron">North Side</span>
             </div>
             <h3 class="font-display font-bold text-lg text-ink mb-1">Bandra · Mumbai</h3>
@@ -419,7 +409,7 @@
         </div>
         <div class="mt-10 pt-10 border-t border-warm text-center">
           <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-charcoal text-white mb-4">
-            <span class="text-xl">📱</span>
+            <i data-lucide="smartphone" class="w-5 h-5"></i>
             <span class="font-bold">WhatsApp Order</span>
             <span class="text-xs text-white/80">+91 98860 99000</span>
           </div>
@@ -436,7 +426,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div class="col-span-1 md:col-span-1">
             <div class="flex items-center gap-2 mb-3">
-              <span class="text-2xl">🍲</span>
+              <i data-lucide="utensils" class="w-5 h-5 text-vermilion"></i>
               <span class="font-display font-black text-lg text-ink tracking-tight">BRO <span class="text-saffron">BIRYANI</span></span>
             </div>
             <p class="text-xs text-muted leading-relaxed mb-4">The Dum Revolution. Hand-ground spices, 2-year aged basmati, pure cow ghee, and wood-fired charcoal slow cooking.</p>
@@ -554,7 +544,7 @@
       <div class="bg-white border border-warm rounded-[30px] max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
         <button onclick="closeTrackOrderModal()" class="absolute top-5 right-5 text-muted hover:text-ink"><i data-lucide="x" class="w-5 h-5"></i></button>
         <div class="text-center mb-6">
-          <div class="w-14 h-14 rounded-full bg-saffron/10 text-saffron flex items-center justify-center mx-auto text-2xl border border-saffron/20">🚚</div>
+          <div class="w-14 h-14 rounded-full bg-saffron/10 text-saffron flex items-center justify-center mx-auto text-2xl border border-saffron/20"><i data-lucide="truck" class="w-6 h-6"></i></div>
           <h3 class="font-display font-bold text-lg text-ink mt-3">Order on the Way</h3>
           <p class="text-xs text-muted mt-1">Your dum feast is being prepared with care.</p>
         </div>
@@ -571,7 +561,7 @@
       <div class="bg-white border border-warm rounded-[30px] max-w-md w-full p-6 sm:p-8 space-y-5 shadow-2xl relative">
         <button onclick="closeAuthModal()" class="absolute top-5 right-5 text-muted hover:text-ink"><i data-lucide="x" class="w-5 h-5"></i></button>
         <div class="space-y-2 text-center">
-          <div class="w-14 h-14 rounded-full bg-vermilion/10 text-vermilion flex items-center justify-center mx-auto text-2xl border border-vermilion/20">👤</div>
+          <div class="w-14 h-14 rounded-full bg-vermilion/10 text-vermilion flex items-center justify-center mx-auto text-2xl border border-vermilion/20"><i data-lucide="user" class="w-6 h-6"></i></div>
           <h3 class="font-display font-bold text-lg text-ink" id="auth-modal-title">Bro Account & History</h3>
           <p class="text-xs text-muted">Save addresses, view order history, and reorder your favorite dum feast.</p>
         </div>
@@ -600,7 +590,7 @@
       <div class="bg-white border border-warm rounded-[30px] max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
         <button onclick="closeReservationModal()" class="absolute top-5 right-5 text-muted hover:text-ink"><i data-lucide="x" class="w-5 h-5"></i></button>
         <div class="text-center">
-          <div class="w-16 h-16 rounded-full bg-vermilion/10 text-vermilion flex items-center justify-center mx-auto text-3xl mb-4 border border-vermilion/20">📅</div>
+          <div class="w-16 h-16 rounded-full bg-vermilion/10 text-vermilion flex items-center justify-center mx-auto text-3xl mb-4 border border-vermilion/20"><i data-lucide="calendar" class="w-8 h-8"></i></div>
           <h3 class="font-display font-bold text-lg text-ink mb-2">Book a Table</h3>
           <p class="text-xs text-muted mb-6">Reserve your seat at any Bro Biryani outlet.</p>
           <form id="reservation-form-inline" class="space-y-4">
@@ -616,7 +606,7 @@
             <button type="button" onclick="submitReservation()" class="w-full btn-pill btn-primary py-3 text-sm font-black">Confirm Reservation</button>
           </form>
           <div id="res-confirm" class="hidden mt-6 p-5 rounded-[24px] border border-saffron/20 bg-saffron/5 text-saffron text-center space-y-3">
-            <div class="text-3xl">✓</div><p class="font-bold text-ink">Table Reserved!</p><p class="text-sm text-ink-soft">We’ve saved your seat. A confirmation SMS has been sent.</p>
+            <div class="text-3xl"><i data-lucide="check-circle" class="w-8 h-8"></i></div><p class="font-bold text-ink">Table Reserved!</p><p class="text-sm text-ink-soft">We’ve saved your seat. A confirmation SMS has been sent.</p>
           </div>
         </div>
       </div>
@@ -627,7 +617,7 @@
       <div class="bg-white border border-warm rounded-[30px] max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
         <button onclick="document.getElementById('checkout-modal').classList.add('hidden')" class="absolute top-5 right-5 text-muted hover:text-ink"><i data-lucide="x" class="w-5 h-5"></i></button>
         <div class="text-center">
-          <div class="w-16 h-16 rounded-full bg-saffron/10 text-saffron flex items-center justify-center mx-auto text-3xl mb-4 border border-saffron/20">🧾</div>
+          <div class="w-16 h-16 rounded-full bg-saffron/10 text-saffron flex items-center justify-center mx-auto text-3xl mb-4 border border-saffron/20"><i data-lucide="receipt" class="w-8 h-8"></i></div>
           <h3 class="font-display font-bold text-lg text-ink mb-2">Checkout</h3>
           <p class="text-xs text-muted mb-6">Review your order and complete payment.</p>
           <div class="space-y-3 text-sm">

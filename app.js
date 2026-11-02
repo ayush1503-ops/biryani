@@ -466,10 +466,10 @@ function initPotUnlocking() {
       statusBadge.innerText = '100% SEALED';
       statusBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-black bg-amber-500/20 text-amber-400 border border-amber-500/30';
     } else if (percent < 70) {
-      statusBadge.innerText = 'STEAM ESCAPING 🔥';
+      statusBadge.innerText = 'STEAM ESCAPING';
       statusBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-black bg-vermilion-500/30 text-vermilion-400 border border-vermilion-500/40 animate-pulse';
     } else {
-      statusBadge.innerText = 'AROMA UNLEASHED! ✨';
+      statusBadge.innerText = 'AROMA UNLEASHED';
       statusBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-black bg-saffron-500/30 text-saffron-400 border border-saffron-500/50';
     }
 
@@ -602,7 +602,8 @@ function renderMenu() {
   emptyState.classList.add('hidden');
 
   grid.innerHTML = filtered.map(item => {
-    const spiceIcons = '🌶️'.repeat(item.spice || 2);
+    const spiceLabels = { 1: 'Mild', 2: 'Medium', 3: 'Hot' };
+    const spiceLabel = spiceLabels[item.spice] || 'Medium';
     const vegBadge = item.veg 
       ? `<span class="flex items-center gap-1 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-0.5 rounded-full"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> VEG</span>`
       : `<span class="flex items-center gap-1 text-[11px] font-bold text-vermilion-400 bg-vermilion-500/10 border border-vermilion-500/30 px-2.5 py-0.5 rounded-full"><span class="w-2 h-2 rounded-full bg-vermilion-500"></span> NON-VEG</span>`;
@@ -627,11 +628,10 @@ function renderMenu() {
           
           <div class="absolute top-3 left-3 flex items-center gap-2">
             ${vegBadge}
-            ${item.badge ? `<span class="text-[10px] font-black uppercase tracking-wider bg-saffron-500 text-charcoal-950 px-2.5 py-0.5 rounded-full shadow">${item.badge}</span>` : ''}
           </div>
 
-          <div class="absolute top-3 right-3 bg-charcoal-900/90 backdrop-blur-md border border-charcoal-700 px-3 py-1 rounded-full text-xs font-bold text-cream-200 flex items-center gap-1 shadow">
-            <span>${spiceIcons}</span>
+          <div class="absolute top-3 right-3 bg-charcoal-900/90 backdrop-blur-md border border-charcoal-700 px-3 py-1 rounded-full text-[10px] font-bold text-saffron shadow">
+            ${spiceLabel}
           </div>
 
           <div class="absolute bottom-3 left-3 bg-charcoal-950/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] text-gray-300 font-medium">
@@ -754,7 +754,8 @@ window.openCustomizer = function(dishId) {
     ? 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' 
     : 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-vermilion-500/20 text-vermilion-400 border border-vermilion-500/30';
 
-  document.getElementById('cust-modal-spice').innerText = '🌶️'.repeat(item.spice || 2);
+  const spiceLabels = { 1: 'Mild', 2: 'Medium', 3: 'Hot' };
+  document.getElementById('cust-modal-spice').innerText = spiceLabels[item.spice] || 'Medium';
 
   // Reset form controls
   document.querySelectorAll('input[name="cust-size"]').forEach((r, i) => r.checked = (i === 0));
@@ -1000,7 +1001,7 @@ function initCartListeners() {
       cartOrderType = 'delivery';
       modeDelivery.className = 'flex-1 py-1.5 rounded-full font-bold bg-saffron-500 text-charcoal-950 transition flex items-center justify-center gap-1.5';
       modePickup.className = 'flex-1 py-1.5 rounded-full font-bold text-gray-400 hover:text-white transition flex items-center justify-center gap-1.5';
-      modeDesc.innerText = '🚀 Piping hot delivery in 30 mins to your address';
+      modeDesc.innerText = 'Express delivery in 30 mins to your address';
       updateCartUI();
     });
 
@@ -1008,7 +1009,7 @@ function initCartListeners() {
       cartOrderType = 'pickup';
       modePickup.className = 'flex-1 py-1.5 rounded-full font-bold bg-saffron-500 text-charcoal-950 transition flex items-center justify-center gap-1.5';
       modeDelivery.className = 'flex-1 py-1.5 rounded-full font-bold text-gray-400 hover:text-white transition flex items-center justify-center gap-1.5';
-      modeDesc.innerText = '🛍️ Ready for counter pickup in 20 mins • ₹0 Delivery Fee!';
+      modeDesc.innerText = 'Ready for counter pickup in 20 mins • ₹0 Delivery Fee!';
       updateCartUI();
     });
   }
@@ -1786,7 +1787,7 @@ function initAudioToggle() {
         soundOnIcon?.classList.remove('hidden');
         soundOffIcon?.classList.add('hidden');
         startSizzleSound();
-        showToast('Dum charcoal sizzle sound enabled 🔥');
+        showToast('Dum charcoal sizzle sound enabled');
       } else {
         soundOnIcon?.classList.add('hidden');
         soundOffIcon?.classList.remove('hidden');
